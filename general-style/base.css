@@ -1,0 +1,85 @@
+@font-face {
+  font-family: Sepahbod;
+  src: url(../Fonts/Dirooz.ttf) format(truetype);
+}
+
+@font-face {
+  font-family: Dirooz;
+  src: url(../Fonts/Dirooz.ttf) format(truetype);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: color 0.2s, background-color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: royalblue;
+  font-family: Dirooz;
+}
+
+button {
+  cursor: pointer;
+}
+
+a,
+li {
+  cursor: pointer;
+}
+
+li {
+  color: #ff5c39;
+}
+
+i {
+  margin-left: 10px;
+}
+
+a:hover {
+  color: #f1bd07;
+}
+
+span {
+  display: block;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.show {
+  display: flex !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+input,
+textarea {
+  border: 0;
+  outline: 0;
+}
+
+input,
+textarea:focus {
+  outline: 0;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal !important;
+}
