@@ -1,5 +1,66 @@
 @import url(Base.css);
 @import url(Component.css);
+@font-face {
+  font-family: Sepahbod;
+  src: url(../Fonts/Dirooz.ttf) format(truetype);
+}
+
+@font-face {
+  font-family: Dirooz;
+  src: url(../Fonts/Dirooz.ttf) format(truetype);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: color 0.2s, background-color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: royalblue;
+  font-family: Dirooz;
+}
+
+button {
+  cursor: pointer;
+}
+
+a,
+li {
+  cursor: pointer;
+}
+
+li {
+  color: #ff5c39;
+}
+
+a:hover {
+  color: #f1bd07 !important;
+}
+
+span {
+  display: block;
+}
+
+input,
+textarea {
+  border: 0;
+  outline: 0;
+}
+
+input,
+textarea:focus {
+  outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal !important;
+}
 
 body {
   background-color: #45474b;
@@ -141,9 +202,15 @@ footer .logo-container {
   }
 }
 @media (max-width: 1000px) {
+  #row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 200px auto 50px auto;
+  }
   main {
     order: 1;
-    width: calc(100% - 20px);
-    margin: 0 10px 20px 10px;
+    width: 100%;
+    margin: 0 0 20px 0;
   }
 }

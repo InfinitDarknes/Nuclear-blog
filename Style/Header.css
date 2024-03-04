@@ -58,6 +58,9 @@ header .search-bar-form {
   height: 130px;
   margin-left: 30px;
 }
+#second-row-logo {
+  display: none;
+}
 
 #header-menu-container {
   position: relative;
@@ -69,6 +72,14 @@ header .search-bar-form {
   padding: 20px 0;
   background-color: #272829;
   box-shadow: 0 20px 20px -15px #f1bd07;
+}
+
+#show-menu-btn {
+  display: none;
+}
+
+#mobile-menu {
+  display: none;
 }
 
 .menu-ul {
@@ -148,14 +159,110 @@ header .search-bar-form {
     height: 25px;
     margin: 0 5px;
   }
-  .header-menu-container {
-    height: fit-content;
-    padding-bottom: 20px;
-  }
   .menu-li {
     font-size: 1em;
   }
   .sub-menu-li {
     font-size: 1em;
+  }
+}
+@media (max-width: 1000px) {
+  #mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 300px;
+    height: 100vh;
+    background-color: #46474b;
+    z-index: 200;
+    right: -100%;
+    transition: all 0.5s;
+  }
+  #close-mobile-menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 8px;
+    width: calc(95% - 20px);
+    height: 50px;
+    background-color: #ff5c39;
+    border: 0;
+    border-radius: 10px;
+  }
+  #close-icon {
+    width: 30px;
+    height: 30px;
+  }
+  #mobile-menu-ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 70px;
+  }
+  .mobile-menu-li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: calc(95% - 20px);
+    padding: 10px;
+    background-color: #1b1a1d;
+    margin: 5px 0;
+    border-radius: 10px;
+  }
+  .mobile-menu-link {
+    font-size: 1.2em;
+    color: royalblue;
+  }
+  .menu-icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 8px;
+  }
+  .collapse-btn {
+    position: absolute;
+    left: 8px;
+    background: none;
+    border: 0;
+  }
+  .collapse-icon {
+    width: 20px;
+    height: 20px;
+  }
+  #first-header-row {
+    display: none;
+  }
+  #second-row-logo {
+    display: block;
+    width: 150px;
+    height: 120px;
+  }
+  #header-menu-container {
+    margin: 0;
+  }
+  #header-menu-nav {
+    display: none;
+  }
+
+  #show-menu-btn {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: 0;
+    font-size: 18px;
+    font-family: Sepahbod;
+    color: #dad6d6;
+  }
+  #menu-icon {
+    width: 40px;
+    height: 40px;
   }
 }
