@@ -212,3 +212,11 @@ footer .logo-container {
     margin: 0 0 20px 0;
   }
 }
+@media (max-width: 600px) {
+  #row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 150px auto 50px auto;
+  }
+}
