@@ -26,7 +26,8 @@
       </section>
 
       <section id="header-menu-container">
-        <nav class="header-menu-nav">
+        <button id="show-menu-btn"><img id="menu-icon" src="Icons/MenuIcon.png" alt="" inert />منو</button>
+        <nav id="header-menu-nav">
           <ul class="menu-ul">
             <li class="menu-li">
               <div class="container">
@@ -153,7 +154,42 @@
             </li>
           </ul>
         </nav>
+        <a href="#"><img src="Logo/Iranium.png" alt="" id="second-row-logo" /></a>
         <button id="show-search-overlay-btn"><img class="search-icon" src="Icons/SearchIcon.png" alt="" inert /></button>
+      </section>
+      <section id="mobile-menu">
+        <button id="close-mobile-menu-btn"><img src="Icons/CloseIcon.png" alt="" id="close-icon" /></button>
+        <ul id="mobile-menu-ul">
+          <li class="mobile-menu-li">
+            <img src="Icons/HomeIcon.png" alt="" class="menu-icon" />
+            <a href="#" class="mobile-menu-link">خانه</a>
+          </li>
+          <li class="mobile-menu-li">
+            <img src="Icons/CategoriesIcon.png" alt="" class="menu-icon" />
+            <a href="#" class="mobile-menu-link">دسته بندی</a>
+            <button class="collapse-btn"><img src="Icons/DownArrowIcon.png" alt="" class="collapse-icon" /></button>
+          </li>
+          <li class="mobile-menu-li">
+            <img src="Icons/ContentsIcon.png" alt="" class="menu-icon" />
+            <a href="#" class="mobile-menu-link">همه پست ها</a>
+          </li>
+          <li class="mobile-menu-li">
+            <img src="Icons/TVIcon.png" alt="" class="menu-icon" />
+            <a href="#" class="mobile-menu-link">تلویزیون نوترینو</a>
+          </li>
+          <li class="mobile-menu-li">
+            <img src="Icons/VideoIcon.png" alt="" class="menu-icon" />
+            <a href="#" class="mobile-menu-link">ویدیو ها</a>
+          </li>
+          <li class="mobile-menu-li">
+            <img src="Icons/BookIcon.png" alt="" class="menu-icon" />
+            <a href="#" class="mobile-menu-link">دانشنامه هسته ای</a>
+          </li>
+          <li class="mobile-menu-li">
+            <img src="Icons/ContactUsIcon.png" alt="" class="menu-icon" />
+            <a href="#" class="mobile-menu-link">ارتباط با ادمین</a>
+          </li>
+        </ul>
       </section>
       <div id="scrollbar"></div>
     </header>
@@ -379,8 +415,9 @@
       </section>
     </footer>
   </body>
-  <script src="Javascript/DataBase.js"></script>
-  <script src="Javascript/PostBannerGenerator.js"></script>
+  <script src="Javascript/DataBase.js" defer></script>
+  <script src="Javascript/PostBannerGenerator.js" defer></script>
   <script src="Javascript/SearchEngine.js" defer></script>
   <script src="Javascript/Main.js" defer></script>
+  <script src="Javascript/MobileMenu.js" defer></script>
 </html>
