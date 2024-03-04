@@ -7,13 +7,14 @@ function ScrollBar() {
 }
 window.addEventListener("scroll", () => {
   ScrollBar();
-  console.log(window.screenTop);
-  if (window.scrollY > 0) {
-    document.getElementById("first-header-row").style.display = "none";
-    document.getElementById("header-menu-container").style.marginTop = "0";
-  }
-  if (window.scrollY === 0) {
-    document.getElementById("first-header-row").style.display = "flex";
-    document.getElementById("header-menu-container").style.marginTop = "3px";
+  if (window.innerWidth > 1000) {
+    if (window.scrollY > 0) {
+      document.getElementById("first-header-row").style.display = "none";
+      document.getElementById("header-menu-container").style.marginTop = "0";
+    }
+    if (window.scrollY === 0) {
+      document.getElementById("first-header-row").style.display = "flex";
+      document.getElementById("header-menu-container").style.marginTop = "3px";
+    }
   }
 });
