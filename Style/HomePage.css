@@ -103,38 +103,3 @@
   width: 30px;
   height: 30px;
 }
-
-@media screen and (max-width: 1200px) {
-  main {
-    margin: 0 10px;
-    width: calc(100% - 20px);
-  }
-
-  .gallery {
-    grid-template-columns: repeat(10, 35%);
-    gap: 0 10px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .gallery {
-    grid-template-columns: repeat(10, 35%);
-  }
-}
-@media screen and (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(10, 45%);
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .gallery {
-    grid-template-columns: repeat(10, 55%);
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .gallery {
-    grid-template-columns: repeat(10, 90%);
-  }
-}

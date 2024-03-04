@@ -134,3 +134,28 @@ header .search-bar-form {
   display: inline-block;
   width: max-content;
 }
+@media (max-width: 1300px) {
+  header {
+    height: fit-content;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+  }
+  .header-icon {
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+  }
+  .header-menu-container {
+    height: fit-content;
+    padding-bottom: 20px;
+  }
+  .menu-li {
+    font-size: 1em;
+  }
+  .sub-menu-li {
+    font-size: 1em;
+  }
+}

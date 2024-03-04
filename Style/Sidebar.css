@@ -123,3 +123,137 @@ aside a {
   margin-right: 10px;
   transition: 0.3s;
 }
+@media (max-width: 1300px) {
+  aside {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  #left-sidebar {
+    width: calc(100% - 20px);
+    order: 3;
+    margin: 0 10px;
+  }
+  #right-sidebar {
+    width: calc(20% - 10px);
+    order: 1;
+    margin-right: 10px;
+  }
+  .sidebar-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin: 15px 10px;
+    text-align: center;
+    border-radius: 10px;
+    color: #f1bd07;
+    background-color: #1b1a1d;
+    font-family: Sepahbod;
+    font-size: 1.4em;
+  }
+  .sidebar-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 8px;
+  }
+
+  aside a {
+    font-size: 18px;
+  }
+
+  #all-tags-section-ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .all-tags-ul-li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 85%;
+  }
+
+  .all-posts-ul li a {
+    width: fit-content;
+  }
+
+  .tag-count {
+    font-family: Dirooz;
+  }
+
+  .sidebar {
+    background-color: #272829;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .sidebar-ul {
+    width: 100%;
+  }
+
+  .sidebar-post-info {
+    margin: 0 8px;
+    width: calc(100% - 116px);
+  }
+
+  .sidebar-post-image-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .sidebar-post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sidebar-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    list-style: none;
+    width: 100%;
+    margin: 10px 0;
+    border-bottom: 1px solid #455364;
+    padding-bottom: 5px;
+  }
+
+  .sidebar-item a {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+    font-size: 25px;
+    color: #f1bd07;
+    cursor: pointer;
+    font-family: Sepahbod;
+  }
+
+  .sidebar-btn i {
+    display: none;
+    color: royalblue;
+    margin-right: 10px;
+    transition: 0.3s;
+  }
+}
+@media (max-width: 1000px) {
+  #right-sidebar {
+    width: calc(100% - 20px);
+    order: 2;
+    margin: 0 10px;
+  }
+}
