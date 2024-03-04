@@ -1,0 +1,136 @@
+#scrollbar {
+  position: absolute;
+  top: 0;
+  height: 4px;
+  background-color: #f1bd07;
+  z-index: 1000;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: fit-content;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+.header-icon {
+  width: 30px;
+  height: 30px;
+  margin: 0 8px;
+}
+
+#first-header-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: #272829;
+}
+
+header .search-bar-form {
+  display: none;
+}
+
+.header-menu-btn {
+  display: none;
+  position: fixed;
+  right: 5%;
+  border: 0;
+  font-size: 30px;
+  background-color: transparent;
+  color: royalblue;
+  top: 0;
+  margin-top: 0;
+  transform: translateY(100%);
+}
+
+.close-mobile-menu-btn {
+  display: none;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 130px;
+  margin-left: 30px;
+}
+
+#header-menu-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3px;
+  padding: 20px 0;
+  background-color: #272829;
+  box-shadow: 0 20px 20px -15px #f1bd07;
+}
+
+.menu-ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.menu-li {
+  display: inline-block;
+  font-size: 1.1em;
+  margin-left: 20px;
+  font-family: Dirooz;
+}
+.menu-li a {
+  color: #dad6d6;
+}
+.menu-li a:hover {
+  color: #f1bd07;
+}
+
+.menu-li .container {
+  display: flex;
+  align-items: center;
+}
+
+.menu-li > .sub-menu-ul {
+  display: none;
+}
+
+.sub-menu-ul {
+  background-color: #45474b;
+  border-radius: 10px;
+  padding: 20px 30px 20px 20px;
+  position: absolute;
+  background-clip: padding-box;
+}
+
+.menu-li:hover > .sub-menu-ul {
+  display: block;
+}
+
+.sub-menu-li {
+  width: 100%;
+  font-size: 1em;
+  list-style-type: disc;
+  font-style: normal;
+  color: #f1bd07 !important;
+  font-family: Dirooz;
+}
+
+.sub-menu-li a {
+  width: 100%;
+}
+
+.sub-menu-li > .sub-menu-ul {
+  display: none;
+  border-right: 21px solid transparent;
+  border-top: 20px solid transparent;
+}
+
+.sub-menu-li:hover > .sub-menu-ul {
+  display: inline-block;
+  width: max-content;
+}

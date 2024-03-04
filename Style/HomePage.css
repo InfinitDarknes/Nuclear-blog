@@ -1,0 +1,140 @@
+.gallery-title {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1b1a1d;
+  font-size: 1.3em;
+  color: #f1bd07;
+  font-family: Sepahbod;
+  border-radius: 10px;
+}
+
+#post-banners-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+.post-banner {
+  display: flex;
+  padding: 15px;
+  width: calc(100% - 30px);
+  background-color: #1b1a1d;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.post-banner-image-container {
+  width: 200px;
+  height: 150px;
+}
+.post-banner-image {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+}
+.post-banner-info-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+  width: calc(100% - 215px);
+}
+.banner-title {
+  color: royalblue;
+  font-size: 1.25em;
+}
+.banner-title:hover {
+  color: #f1bd07;
+}
+.banner-description {
+  text-align: justify;
+  font-size: 0.9em;
+  color: #dad6d6;
+  font-family: Dirooz;
+  margin-bottom: 35px;
+}
+.view-post-link {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -15px;
+  left: -15px;
+  width: fit-content;
+  padding: 5px;
+  font-size: 1.1em;
+  font-family: Dirooz;
+  background-color: #272829;
+}
+.view-post-link::after {
+  content: "⬅";
+  font-size: 1.1em;
+  margin-right: 8px;
+}
+#pagination {
+  width: calc(100% - 20px);
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1b1a1d;
+  border-radius: 10px;
+}
+#pagination-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.pagination-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  margin: 0 8px;
+  border-radius: 10px;
+  font-size: 1.3em;
+  background-color: #272829;
+  color: #dad6d6;
+}
+.pagination-btn-icon {
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    margin: 0 10px;
+    width: calc(100% - 20px);
+  }
+
+  .gallery {
+    grid-template-columns: repeat(10, 35%);
+    gap: 0 10px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .gallery {
+    grid-template-columns: repeat(10, 35%);
+  }
+}
+@media screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(10, 45%);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .gallery {
+    grid-template-columns: repeat(10, 55%);
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .gallery {
+    grid-template-columns: repeat(10, 90%);
+  }
+}
