@@ -1,44 +1,45 @@
-const PreviousImgBtn = document.querySelectorAll(".prev-image-button");
-const NextImgBtn = document.querySelectorAll(".next-image-button");
-let SliderItems = document.querySelectorAll(".slider-item ");
 let Index = 0;
-
 function PreviousImg(SliderID) {
-  let Slider = document.getElementById(SliderID);
-  let SliderItems = document.querySelectorAll(`#${SliderID} .slider-item`);
+  const Slider = document.getElementById(SliderID);
+  const SliderItems = document.querySelectorAll(`#${SliderID} .slider-image`);
+  const SliderCircles = document.querySelectorAll(`#${SliderID} .slider-circle`);
   let Index = Slider.dataset.index;
   SliderItems[Index].classList.remove("active-image");
+  SliderCircles[Index].classList.remove("active-slider-circle");
   Index--;
   if (Index < 0) {
     Index = SliderItems.length - 1;
   }
   SliderItems[Index].classList.add("active-image");
-  console.log(Slider);
+  SliderCircles[Index].classList.add("active-slider-circle");
   Slider.dataset.index = Index.toString();
 }
 function NextImg(SliderID) {
-  let Slider = document.getElementById(SliderID);
-  let SliderItems = document.querySelectorAll(`#${SliderID} .slider-item`);
+  const Slider = document.getElementById(SliderID);
+  const SliderItems = document.querySelectorAll(`#${SliderID} .slider-image`);
+  const SliderCircles = document.querySelectorAll(`#${SliderID} .slider-circle`);
   let Index = Slider.dataset.index;
-  console.log(Slider, SliderItems, Index);
   SliderItems[Index].classList.remove("active-image");
+  SliderCircles[Index].classList.remove("active-slider-circle");
   Index++;
   if (Index > SliderItems.length - 1) {
     Index = 0;
   }
   SliderItems[Index].classList.add("active-image");
-  console.log(Slider);
+  SliderCircles[Index].classList.add("active-slider-circle");
   Slider.dataset.index = Index.toString();
 }
-PreviousImgBtn.forEach((Button) => {
-  Button.addEventListener("click", () => {
-    let SliderID = Button.parentElement.id;
-    PreviousImg(SliderID);
-  });
-});
-NextImgBtn.forEach((Button) => {
-  Button.addEventListener("click", () => {
-    let SliderID = Button.parentElement.id;
-    NextImg(SliderID);
-  });
-});
+function SelectImage(SliderID, NewIndex, OldIndex) {
+  const Slider = document.getElementById(SliderID);
+  const SliderItems = document.querySelectorAll(`#${SliderID} .slider-image`);
+  const SliderCircles = document.querySelectorAll(`#${SliderID} .slider-circle`);
+  SliderItems[OldIndex].classList.remove("active-image");
+  SliderCircles[OldIndex].classList.remove("active-slider-circle");
+  SliderItems[NewIndex].classList.add("active-image");
+  SliderCircles[NewIndex].classList.add("active-slider-circle");
+  Slider.dataset.index = NewIndex.toString();
+}
+function ToggleImageViewer(SliderID) {
+  const Slider = document.getElementById(SliderID);
+  Slider.classList.toggle("big-slider");
+}

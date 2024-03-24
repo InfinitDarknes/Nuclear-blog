@@ -43,55 +43,6 @@
   border-radius: 10px;
   margin: 0 auto;
 }
-#slider-item-container {
-  position: relative;
-  width: 600px;
-  height: 400px;
-  overflow: hidden;
-}
-
-.slider-item {
-  display: none;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  border-radius: 10px;
-}
-.image-container-button {
-  position: absolute;
-  top: 0;
-  z-index: 2;
-  height: 100%;
-  width: 40px;
-  background-color: rgba(0, 0, 0, 0.7);
-  font-size: 23px;
-  color: rgba(255, 255, 255, 0.5);
-  border: none;
-  outline: none;
-  transition: all 230ms ease;
-  cursor: pointer;
-}
-.slider-icon {
-  width: 30px;
-  height: 30px;
-}
-.prev-image-button:hover {
-  background-color: rgba(241, 189, 7, 0.4);
-}
-.next-image-button:hover {
-  background-color: rgba(241, 189, 7, 0.4);
-}
-.prev-image-button {
-  left: 0;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-.next-image-button {
-  right: 0;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
 #category {
   font-size: 1.1em;
   color: royalblue;
@@ -108,22 +59,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(100% - 100px);
+  width: 100%;
   height: fit-content;
-  margin: 50px 50px 50px 50px;
+  margin: 50px 0;
 }
 
 .article-section {
-  width: 100%;
+  width: 90%;
 }
 
 .article-text {
-  width: 90%;
+  width: 100%;
   margin: 20px 0;
 }
 
 .sub-title {
-  width: calc(90% - 20px);
+  width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 15px;
   background-color: #1b1a1d;
@@ -155,16 +106,6 @@
   text-align: center;
 }
 
-.slider-item-container {
-  width: 400px;
-  margin: 0 auto;
-  height: max-content;
-  overflow-x: scroll;
-  display: flex;
-}
-.active-image {
-  display: block;
-}
 #article-bottom {
   display: flex;
   flex-direction: row;
@@ -351,8 +292,8 @@
   }
 
   .textarea {
-    width: calc(100% - 40px);
-    margin: 20px;
+    width: 100%;
+    margin: 20px 0;
   }
 
   .text {
@@ -373,12 +314,8 @@
     margin: 0 auto;
   }
   #textarea {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: calc(100% - 40px);
-    height: fit-content;
-    margin: 50px 20px 50px 20px;
+    width: 100%;
+    margin: 20px 0;
   }
 }
 
@@ -406,7 +343,6 @@
   #author-name {
     font-size: 1.1em;
   }
-
   #author-biography {
     font-size: 1em;
   }

@@ -30,7 +30,6 @@ function CheckLocationHash() {
     });
     GeneratePost(FetchedPost);
     GenerateAllTagsSidebarItem();
-    console.log("Creating post");
   }
 }
 function BannerGenerator(Start, End) {
@@ -100,7 +99,7 @@ function Pagination() {
   NextPageBtn.id = "next-page-btn";
   const NextPageBtnIcon = document.createElement("img");
   NextPageBtnIcon.className = "pagination-btn-icon";
-  NextPageBtnIcon.src = "../Icons/NextPageIcon.png";
+  NextPageBtnIcon.src = "../Icons/RightArrowIcon.png";
   NextPageBtn.addEventListener("click", () => {
     if (CurrentPage < PageCount) {
       CurrentPage++;
@@ -118,7 +117,7 @@ function Pagination() {
   PrevPageBtn.id = "prev-page-btn";
   const PrevPageBtnIcon = document.createElement("img");
   PrevPageBtnIcon.className = "pagination-btn-icon";
-  PrevPageBtnIcon.src = "../Icons/PrevPageIcon.png";
+  PrevPageBtnIcon.src = "../Icons/LeftArrowIcon.png";
   PrevPageBtn.addEventListener("click", () => {
     if (CurrentPage > 1) {
       CurrentPage--;
@@ -210,6 +209,89 @@ function Pagination() {
     if (Number(Button.dataset.page) === CurrentPage) Button.style.backgroundColor = "orangered";
   });
 }
+function ReturnImageSlider(Images) {
+  const ArticleGallery = document.createElement("section");
+  const SliderID = `slider-${GenerateUniqeID(9)}`;
+  ArticleGallery.id = SliderID;
+  ArticleGallery.className = "image-slider";
+  ArticleGallery.setAttribute("data-index", "0");
+  // Buttons
+  const PrevImageBtn = document.createElement("button");
+  const NextImageBtn = document.createElement("button");
+  const PrevImageBtnIcon = document.createElement("img");
+  const NextImageBtnIcon = document.createElement("img");
+  PrevImageBtn.className = "image-slider-button prev-image-button";
+  NextImageBtn.className = "image-slider-button next-image-button";
+  PrevImageBtnIcon.className = "slider-button-icon";
+  NextImageBtnIcon.className = "slider-button-icon";
+  PrevImageBtnIcon.src = "../Icons/LeftArrowIcon.png";
+  NextImageBtnIcon.src = "../Icons/RightArrowIcon.png";
+  // Slider top bar (download/share image + close maximised image viewer) it is display "none" by defualt unless image viewr is activated
+  const SliderTopBar = document.createElement("div");
+  const DownloadImageBtn = document.createElement("button");
+  const ShareImageBtn = document.createElement("button");
+  const CloseImageViewerBtn = document.createElement("button");
+  const DownloadImageBtnIcon = document.createElement("img");
+  const ShareImageBtnIcon = document.createElement("img");
+  const CloseImageViewerBtnIcon = document.createElement("img");
+  // Classname
+  DownloadImageBtnIcon.src = "Icons/DownloadIcon.png";
+  ShareImageBtnIcon.src = "Icons/LinkIcon.png";
+  CloseImageViewerBtnIcon.src = "Icons/CloseIcon.png";
+  SliderTopBar.className = "slider-top-bar";
+  DownloadImageBtn.className = "slider-top-bar-btn download-image-btn";
+  ShareImageBtn.className = "slider-top-bar-btn share-image-btn";
+  CloseImageViewerBtn.className = "slider-top-bar-btn close-image-viewer-btn";
+  // Append
+  DownloadImageBtn.append(DownloadImageBtnIcon);
+  ShareImageBtn.append(ShareImageBtnIcon);
+  CloseImageViewerBtn.append(CloseImageViewerBtnIcon);
+  SliderTopBar.append(DownloadImageBtn, ShareImageBtn, CloseImageViewerBtn);
+  // Slider track
+  const SliderTrack = document.createElement("div");
+  SliderTrack.className = "slider-track";
+  for (n = 0; n < Images.length; n++) {
+    const SliderCircle = document.createElement("span");
+    SliderCircle.className = "slider-circle";
+    SliderCircle.dataset.index = n.toString();
+    SliderCircle.addEventListener("click", () => {
+      SelectImage(SliderID, SliderCircle.dataset.index, ArticleGallery.dataset.index);
+    });
+    SliderTrack.append(SliderCircle);
+    if (n === 0) SliderCircle.classList.add("active-slider-circle");
+  }
+  // Images
+  for (n = 0; n < Images.length; n++) {
+    const ImageItem = document.createElement("img");
+    ImageItem.src = Images[n];
+    ImageItem.className = "slider-image";
+    ImageItem.addEventListener("click", () => {
+      ToggleImageViewer(SliderID);
+    });
+    ArticleGallery.append(ImageItem);
+    if (n === 0) ImageItem.classList.add("active-image");
+  }
+  //Events
+  PrevImageBtn.addEventListener("click", () => {
+    PreviousImg(SliderID);
+  });
+  NextImageBtn.addEventListener("click", () => {
+    NextImg(SliderID);
+  });
+  CloseImageViewerBtn.addEventListener("click", () => {
+    ToggleImageViewer(SliderID);
+  });
+  PrevImageBtn.append(PrevImageBtnIcon);
+  NextImageBtn.append(NextImageBtnIcon);
+  ArticleGallery.append(NextImageBtn, PrevImageBtn, SliderTrack, SliderTopBar);
+  return ArticleGallery;
+}
+function GenerateUniqeID(Length) {
+  const Min = Math.pow(10, Length - 1);
+  const Max = Math.pow(10, Length) - 1;
+  let ID = Math.abs(Math.round(Math.random() * (Max - Min - 1)) + Min);
+  return ID;
+}
 function GeneratePost(Post) {
   const Main = document.querySelector("main");
   Main.innerHTML = "";
@@ -221,7 +303,6 @@ function GeneratePost(Post) {
   const ArticleDate = document.createElement("span");
   const Category = document.createElement("section");
   const ArticleThumbnail = document.createElement("img");
-  const ArticleSlider = document.createElement("section");
   const TextArea = document.createElement("section");
   const ArticleBottom = document.createElement("section");
   const PostTags = document.createElement("section");
@@ -247,7 +328,6 @@ function GeneratePost(Post) {
   Category.id = "category";
   ArticleDate.id = "article-date";
   ArticleThumbnail.id = "article-thumbnail";
-  ArticleSlider.id = "slider-items-container";
   TextArea.id = "textarea";
   ArticleBottom.id = "article-bottom";
   PostTags.id = "post-tags";
@@ -258,10 +338,8 @@ function GeneratePost(Post) {
   AuthorImage.id = "author-image";
   AuthorName.id = "author-name";
   AuthorBiography.id = "author-biography";
-
   SocialMediasNav.id = "social-medias-nav";
   SocialMediasUl.id = "social-medias-ul";
-
   // Class
   ArticleDate.className = "date";
   PostTags.className = "article-bottom-item";
@@ -327,7 +405,11 @@ function GeneratePost(Post) {
   AuthorProfile.append(AuthorImage, AuthorName);
   AuthorSection.append(AuthorSectionTitle, AuthorInfoContainer);
   AuthorInfoContainer.append(AuthorProfile, AuthorBiography);
-  Content.append(ArticleHeader, ArticleThumbnail, TextArea, ArticleBottom);
+  if (Post.ImageGalleryArray.length !== 0) {
+    Content.append(ArticleHeader, ReturnImageSlider(Post.ImageGalleryArray), TextArea, ArticleBottom);
+  } else {
+    Content.append(ArticleHeader, ArticleThumbnail, TextArea, ArticleBottom);
+  }
   Main.append(Content);
 }
 function GenerateAllTagsSidebarItem() {
