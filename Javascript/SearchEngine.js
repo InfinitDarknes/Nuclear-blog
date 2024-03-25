@@ -65,11 +65,11 @@ function CreateSearchPreviews(Array) {
   });
   SearchPreviewContainer.append(ItemsFragment);
 }
-function HideSearchOverlay() {
-  document.getElementById("search-overlay").style.display = "none";
-}
 function ResetSearchBar() {
-  HideSearchOverlay();
+  const SearchOverlay = document.getElementById("search-overlay");
+  const SearchPreviewContainer = document.getElementById("search-preview-container");
+  SearchOverlay.style.display = "none";
+  SearchPreviewContainer.style.display = "none";
   SearchInput.value = "";
   SearchMode = false;
 }
