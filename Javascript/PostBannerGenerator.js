@@ -1,6 +1,6 @@
 const PostBannersContainer = document.getElementById("post-banners-container");
 let LayoutSettings = {
-  BannerPerPage: 4,
+  BannerPerPage: 10,
   MaxPaginationButtons: 5,
 };
 let CurrentPage = 1;
@@ -30,6 +30,7 @@ function CheckLocationHash() {
     });
     GeneratePost(FetchedPost);
     GenerateAllTagsSidebarItem();
+    window.scrollTo(0, 0);
   }
 }
 function BannerGenerator(Start, End) {
@@ -264,12 +265,51 @@ function ReturnImageSlider(Images) {
   for (n = 0; n < Images.length; n++) {
     const ImageItem = document.createElement("img");
     ImageItem.src = Images[n];
-    ImageItem.className = "slider-image";
+    ImageItem.className = "slider-image page-break";
+    ImageItem.draggable = true;
     ImageItem.addEventListener("click", () => {
       ToggleImageViewer(SliderID);
     });
     ArticleGallery.append(ImageItem);
     if (n === 0) ImageItem.classList.add("active-image");
+    // Sliding with mouse or finger events
+    let IsDragging = false;
+    let StartPosition = 0;
+    let EndPosition = 0;
+    ImageItem.addEventListener("dragstart", (Event) => {
+      IsDragging = true;
+      StartPosition = Event.clientX;
+    });
+    ImageItem.addEventListener("dragend", (Event) => {
+      let DistanceTraveled = Math.abs(EndPosition - StartPosition);
+      if (IsDragging) {
+        EndPosition = Event.clientX;
+        IsDragging = false;
+      }
+      if (EndPosition > StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
+        PreviousImg(SliderID);
+      }
+      if (EndPosition < StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
+        NextImg(SliderID);
+      }
+    });
+    ImageItem.addEventListener("touchstart", (Event) => {
+      IsDragging = true;
+      StartPosition = Event.touches[0].clientX;
+    });
+    ImageItem.addEventListener("touchend", (Event) => {
+      let DistanceTraveled = Math.abs(EndPosition - StartPosition);
+      if (IsDragging) {
+        EndPosition = Event.changedTouches[0].clientX;
+        IsDragging = false;
+      }
+      if (EndPosition > StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
+        PreviousImg(SliderID);
+      }
+      if (EndPosition < StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
+        NextImg(SliderID);
+      }
+    });
   }
   //Events
   PrevImageBtn.addEventListener("click", () => {
@@ -281,6 +321,7 @@ function ReturnImageSlider(Images) {
   CloseImageViewerBtn.addEventListener("click", () => {
     ToggleImageViewer(SliderID);
   });
+
   PrevImageBtn.append(PrevImageBtnIcon);
   NextImageBtn.append(NextImageBtnIcon);
   ArticleGallery.append(NextImageBtn, PrevImageBtn, SliderTrack, SliderTopBar);

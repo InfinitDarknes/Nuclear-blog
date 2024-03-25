@@ -46,7 +46,6 @@ function FetchPreviews() {
   }
 }
 function CreateSearchPreviews(Array) {
-  console.log(Array);
   SearchPreviewContainer.style.display = "flex";
   SearchPreviewContainer.innerHTML = "";
   let ItemsFragment = document.createDocumentFragment();
