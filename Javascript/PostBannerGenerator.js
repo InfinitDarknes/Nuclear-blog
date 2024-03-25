@@ -274,7 +274,6 @@ function ReturnImageSlider(Images) {
     if (n === 0) ImageItem.classList.add("active-image");
     // Sliding with mouse or finger events
     let IsDragging = false;
-    let StartPosition = 0;
     let EndPosition = 0;
     ImageItem.addEventListener("dragstart", (Event) => {
       IsDragging = true;
@@ -294,8 +293,11 @@ function ReturnImageSlider(Images) {
       }
     });
     ImageItem.addEventListener("touchstart", (Event) => {
-      IsDragging = true;
-      StartPosition = Event.touches[0].clientX;
+      const Touch = Event.touches;
+      if (Touch.length === 1) {
+        IsDragging = true;
+        StartPosition = Event.touches[0].clientX;
+      }
     });
     ImageItem.addEventListener("touchend", (Event) => {
       let DistanceTraveled = Math.abs(EndPosition - StartPosition);
