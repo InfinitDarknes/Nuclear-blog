@@ -285,10 +285,10 @@ function ReturnImageSlider(Images) {
         EndPosition = Event.clientX;
         IsDragging = false;
       }
-      if (EndPosition > StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
+      if (EndPosition > StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.1) {
         PreviousImg(SliderID);
       }
-      if (EndPosition < StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
+      if (EndPosition < StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.1) {
         NextImg(SliderID);
       }
     });
@@ -304,9 +304,9 @@ function ReturnImageSlider(Images) {
       if (IsDragging) {
         EndPosition = Event.changedTouches[0].clientX;
         IsDragging = false;
-        if (EndPosition > StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
+        if (EndPosition > StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.1) {
           PreviousImg(SliderID);
-        } else if (EndPosition < StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
+        } else if (EndPosition < StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.1) {
           NextImg(SliderID);
         }
       }
@@ -322,7 +322,6 @@ function ReturnImageSlider(Images) {
   CloseImageViewerBtn.addEventListener("click", () => {
     ToggleImageViewer(SliderID);
   });
-
   PrevImageBtn.append(PrevImageBtnIcon);
   NextImageBtn.append(NextImageBtnIcon);
   ArticleGallery.append(NextImageBtn, PrevImageBtn, SliderTrack, SliderTopBar);
