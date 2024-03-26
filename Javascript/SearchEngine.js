@@ -68,6 +68,9 @@ function CreateSearchPreviews(Array) {
 function ResetSearchBar() {
   SearchOverlay.style.display = "none";
   SearchPreviewContainer.style.display = "none";
+  SearchPreviewContainer.innerHTML = "";
+  NoResultBox.classList.replace("flex", "hidden");
+  SearchSomething.classList.replace("hidden", "flex");
   SearchInput.value = "";
   SearchMode = false;
   Header.classList.remove("blur");
