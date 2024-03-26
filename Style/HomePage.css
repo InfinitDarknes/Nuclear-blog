@@ -14,15 +14,15 @@
 #post-banners-container {
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .post-banner {
   display: flex;
   padding: 15px;
-  width: calc(100% - 30px);
+  width: 100%;
   background-color: #1b1a1d;
-  border-radius: 20px;
-  margin-bottom: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
   overflow: hidden;
 }
 .post-banner-image-container {
@@ -73,8 +73,8 @@
   margin-right: 8px;
 }
 #pagination {
-  width: calc(100% - 20px);
-  height: 50px;
+  width: 100%;
+  height: 70px;
   padding: 10px;
   display: flex;
   justify-content: center;

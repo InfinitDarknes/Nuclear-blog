@@ -17,13 +17,11 @@ aside {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 10px;
-  margin: 15px 10px;
+  margin: 0 auto 15px auto;
   text-align: center;
   border-radius: 10px;
-  color: #f1bd07;
-  background-color: #1b1a1d;
   font-family: Sepahbod;
   font-size: 1.4em;
 }
@@ -60,8 +58,7 @@ aside a {
 }
 
 .sidebar {
-  background-color: #272829;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
 }
@@ -76,8 +73,8 @@ aside a {
 }
 
 .sidebar-post-image-container {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .sidebar-post-image {
@@ -101,20 +98,6 @@ aside a {
 .sidebar-item a {
   display: flex;
   flex-wrap: wrap;
-}
-
-.sidebar-btn {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border: 0;
-  background-color: transparent;
-  font-size: 25px;
-  color: #f1bd07;
-  cursor: pointer;
-  font-family: Sepahbod;
 }
 
 .sidebar-btn i {

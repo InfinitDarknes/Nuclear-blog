@@ -304,12 +304,11 @@ function ReturnImageSlider(Images) {
       if (IsDragging) {
         EndPosition = Event.changedTouches[0].clientX;
         IsDragging = false;
-      }
-      if (EndPosition > StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
-        PreviousImg(SliderID);
-      }
-      if (EndPosition < StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
-        NextImg(SliderID);
+        if (EndPosition > StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
+          PreviousImg(SliderID);
+        } else if (EndPosition < StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.2) {
+          NextImg(SliderID);
+        }
       }
     });
   }
@@ -363,34 +362,30 @@ function GeneratePost(Post) {
   const SocialMediasNav = document.createElement("section");
   const SocialMediasUl = document.createElement("section");
   // ID
-  Content.id = "content";
-  ArticleHeader.id = "article-header";
-  ArticleInfoContainer.id = "article-info-container";
-  ArticleTitle.id = "article-title";
-  ArticleDate.id = "article-date";
-  Category.id = "category";
-  ArticleDate.id = "article-date";
-  ArticleThumbnail.id = "article-thumbnail";
-  TextArea.id = "textarea";
-  ArticleBottom.id = "article-bottom";
-  PostTags.id = "post-tags";
-  TagsContainer.id = "tags-container";
-  AuthorSection.id = "author-section";
-  AuthorInfoContainer.id = "author-info-container";
-  AuthorProfile.id = "author-profile";
-  AuthorImage.id = "author-image";
-  AuthorName.id = "author-name";
-  AuthorBiography.id = "author-biography";
-  SocialMediasNav.id = "social-medias-nav";
-  SocialMediasUl.id = "social-medias-ul";
+  Content.className = "content bg-zinc-800";
+  ArticleHeader.className = "article-header bg-zinc-900";
+  ArticleInfoContainer.className = "article-info-container";
+  ArticleTitle.className = "article-title text-yellow-500";
+  ArticleDate.className = "date text-orange-600";
+  Category.className = "category";
+  ArticleThumbnail.className = "article-thumbnail";
+  TextArea.className = "textarea";
+  ArticleBottom.className = "article-bottom";
+  PostTags.className = "article-bottom-item post-tags bg-zinc-900";
+  TagsContainer.className = "tags-container";
+  AuthorSection.className = "article-bottom-item author-section bg-zinc-900";
+  AuthorInfoContainer.className = "author-info-container";
+  AuthorProfile.className = "author-profile";
+  AuthorImage.className = "author-image";
+  AuthorName.className = "author-name";
+  AuthorBiography.className = "author-biography";
+  SocialMedias.className = "article-bottom-item bg-zinc-900";
+  SocialMediasNav.className = "social-medias-nav";
+  SocialMediasUl.className = "social-medias-ul";
   // Class
-  ArticleDate.className = "date";
-  PostTags.className = "article-bottom-item";
-  PostTagsTitle.className = "article-bottom-title";
-  AuthorSection.className = "article-bottom-item";
-  AuthorSectionTitle.className = "article-bottom-title";
-  SocialMedias.className = "article-bottom-item";
-  SocialMediasTitle.className = "article-bottom-title";
+  PostTagsTitle.className = "article-bottom-title bg-stone-800 text-yellow-500";
+  AuthorSectionTitle.className = "article-bottom-title bg-stone-800 text-yellow-500";
+  SocialMediasTitle.className = "article-bottom-title bg-stone-800 text-yellow-500";
   //
   ArticleTitle.innerText = Post.Title;
   ArticleDate.innerText = Post.Date;
@@ -408,12 +403,12 @@ function GeneratePost(Post) {
     const ArticleSection = document.createElement("section");
     ArticleSection.className = "article-section";
     const ArticleSectionTitle = document.createElement("h3");
-    ArticleSectionTitle.className = "sub-title";
+    ArticleSectionTitle.className = "sub-title bg-zinc-900 text-yellow-500";
     ArticleSectionTitle.innerText = Section.SectionTitle;
     ArticleSection.append(ArticleSectionTitle);
     Section.Paragraphs.forEach((Paragraph) => {
       const ArticleSectionParagraph = document.createElement("p");
-      ArticleSectionParagraph.className = "text article-text";
+      ArticleSectionParagraph.className = "article-text text-stone-300";
       ArticleSectionParagraph.innerText = Paragraph;
       ArticleSection.append(ArticleSectionParagraph);
     });
@@ -421,9 +416,9 @@ function GeneratePost(Post) {
   });
   Post.Tags.forEach((Tag) => {
     const TagElement = document.createElement("h4");
-    TagElement.className = "tag";
+    TagElement.className = "tag bg-zinc-800";
     const TagLink = document.createElement("a");
-    TagLink.className = "tag-link";
+    TagLink.className = "tag-link text-blue-600";
     TagLink.innerText = Tag.DisplayName;
     TagElement.append(TagLink);
     TagsContainer.append(TagElement);
@@ -459,11 +454,11 @@ function GenerateAllTagsSidebarItem() {
   // right sidebar second item with title of "فهرست پست ها"
   if (document.getElementById("all-tags-section")) document.getElementById("all-tags-section").remove();
   const AllTagsSection = document.createElement("section");
-  AllTagsSection.className = "sidebar";
+  AllTagsSection.className = "sidebar bg-zinc-800";
   AllTagsSection.id = "all-tags-section";
   const AllTagsSectionTitleContainer = document.createElement("section");
   const AllTagsSectionTitleIcon = document.createElement("img");
-  AllTagsSectionTitleContainer.className = "sidebar-title";
+  AllTagsSectionTitleContainer.className = "sidebar-title bg-zinc-900 text-yellow-500";
   AllTagsSectionTitleIcon.className = "sidebar-icon";
   AllTagsSectionTitleIcon.src = "../Icons/ContentsIcon.png";
   const AllTagsSectionTitle = document.createElement("span");
@@ -474,11 +469,12 @@ function GenerateAllTagsSidebarItem() {
   for (n in Tags) {
     if (!Tags[n].CountOfPosts) continue;
     const ListItem = document.createElement("li");
-    ListItem.className = "all-tags-ul-li";
+    ListItem.className = "all-tags-ul-li my-2";
     const TagCount = document.createElement("span");
-    TagCount.className = "tag-count";
+    TagCount.className = "tag-count text-orange-600";
     TagCount.innerText = Tags[n].CountOfPosts;
     const TagLink = document.createElement("a");
+    TagLink.className = "text-blue-600";
     TagLink.href = Tags[n].Href;
     TagLink.innerText = Tags[n].DisplayName;
     ListItem.append(TagLink, TagCount);
@@ -494,5 +490,5 @@ window.onload = function () {
 };
 window.addEventListener("hashchange", () => {
   CheckLocationHash();
-  HideSearchOverlay();
+  ResetSearchBar();
 });

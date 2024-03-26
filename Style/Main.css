@@ -1,3 +1,15 @@
+@import url(HomePage.css);
+@import url(PostTemplate.css);
+@import url(Sidebar.css);
+@import url(Header.css);
+@import url(Footer.css);
+@import url(Slider.css);
+@import url(BigSlider.css);
+@import url(SearchOverlay.css);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: Sepahbod;
   src: url(../Fonts/Dirooz.ttf) format(truetype);
@@ -12,26 +24,27 @@
   margin: 0;
   padding: 0;
   transition: color 0.2s, background-color 0.3s;
+  font-weight: normal !important;
 }
 
 a {
   text-decoration: none;
   display: inline-block;
-  color: royalblue;
   font-family: Dirooz;
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  outline: 0;
   cursor: pointer;
 }
 
 a,
 li {
   cursor: pointer;
-}
-
-li {
-  color: #ff5c39;
 }
 
 a:hover {
@@ -53,22 +66,12 @@ textarea:focus {
   outline: 0;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-weight: normal !important;
-}
-* {
-  margin: 0;
-  padding: 0;
-}
 body {
-  background-color: #45474b;
   margin: 0;
   padding: 0;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
 }
-
 #row {
   display: flex;
   flex-direction: row;
@@ -82,41 +85,6 @@ main {
   order: 2;
   width: calc(64% - 20px);
   margin: 0 10px;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  height: fit-content;
-  width: 100%;
-  background-color: #272829;
-}
-
-footer .logo-container {
-  height: fit-content;
-  align-items: center;
-  border: none;
-  margin: 30px 0;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: center;
-  flex-direction: row-reverse;
-  align-self: flex-end;
-  width: calc(100% - 40px);
-  padding: 20px 20px;
-}
-
-.footer-bottom > section > nav > ul > li {
-  display: inline-block;
-  margin-right: 30px;
-}
-
-.footer-bottom > section > nav > ul > li > a {
-  font-size: 20px;
 }
 
 @media (max-width: 1300px) {

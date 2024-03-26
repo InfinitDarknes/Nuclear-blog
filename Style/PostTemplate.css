@@ -1,61 +1,54 @@
-#content {
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #272829;
   margin-bottom: 0;
   border-radius: 10px;
 }
 
-#article-header {
+.article-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #1b1a1d;
   margin-bottom: 20px;
   padding: 10px;
-  width: calc(100% - 20px);
+  width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-#article-title {
+.article-title {
   font-size: 1.6em;
   font-family: Sepahbod;
-  color: #f1bd07;
   width: 100%;
 }
 .article-bottom-title {
-  width: calc(100% - 20px);
+  width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  background-color: #1b1a1d;
   font-family: Sepahbod;
-  color: #f1bd07;
   font-size: 1.3em;
 }
 
-#article-thumbnail {
+.article-thumbnail {
   width: 600px;
   height: 400px;
   object-fit: fill;
   border-radius: 10px;
   margin: 0 auto;
 }
-#category {
+.category {
   font-size: 1.1em;
-  color: royalblue;
   font-family: Dirooz;
 }
 
 .category-name::after {
   content: "/";
   margin: 0 8px;
-  color: royalblue;
 }
 
-#textarea {
+.textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,30 +64,23 @@
 .article-text {
   width: 100%;
   margin: 20px 0;
+  font-family: Sepahbod;
+  text-align: justify;
+  font-size: 18px;
 }
 
 .sub-title {
-  width: calc(100% - 20px);
+  width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  background-color: #1b1a1d;
   border-radius: 10px;
   font-family: Sepahbod;
-  color: #f1bd07;
   font-size: 1.3em;
 }
 
 .date {
-  color: #ff5c39;
   font-size: 15px;
   font-family: Sepahbod;
-}
-
-.text {
-  font-family: Sepahbod;
-  text-align: justify;
-  font-size: 18px;
-  color: #c5bebe;
 }
 
 .text a {
@@ -106,7 +92,7 @@
   text-align: center;
 }
 
-#article-bottom {
+.article-bottom {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -120,17 +106,16 @@
   margin: 0 20px 30px 20px;
   width: fit-content;
   height: fit-content;
-  background-color: #45474b !important;
   border-radius: 10px;
   overflow: hidden;
 }
 
-#post-tags {
+.post-tags {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-#tags-container {
+.tags-container {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -145,12 +130,11 @@
   padding: 5px;
   margin: 3px;
   font-size: 18px;
-  background-color: #1b1a1d;
 }
-#author-section {
+.author-section {
   width: 100%;
 }
-#author-info-container {
+.author-info-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -158,47 +142,44 @@
   width: calc(100% - 40px);
 }
 
-#author-profile {
+.author-profile {
   margin-left: 20px;
 }
 
-#author-image {
+.author-image {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   object-fit: fill;
 }
 
-#profile {
+.profile {
   width: 80px;
   height: 80px;
   margin-bottom: 10px;
 }
 
-#profile img {
+.profile img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   object-fit: fill;
 }
 
-#author-name {
+.author-name {
   font-size: 1.2em;
   font-family: Sepahbod;
-  color: #f1bd07;
   text-align: center;
 }
 
-#author-biography {
+.author-biography {
   width: calc(100% - 140px);
-  background-color: #1b1a1d;
   padding: 20px;
   border-radius: 10px;
   font-size: 1.1em;
   font-family: Dirooz;
-  color: #dad6d6;
 }
-#social-medias-ul {
+.social-medias-ul {
   display: flex;
   list-style: none;
 }
@@ -210,35 +191,32 @@
   height: 40px;
 }
 
-#short-link-container {
+.short-link-container {
   display: flex;
   align-items: center;
   height: 72px;
   padding: 8px;
   min-width: 200px;
   max-width: max-content;
-  background-color: #1b1a55;
   margin-bottom: 50px;
   border-radius: 10px;
 }
 
-#short-link-container span:first-of-type {
-  color: #f1bd07;
+.short-link-container span:first-of-type {
   font-family: Sepahbod;
 }
 
-#short-link-container span:first-of-type::after {
+.short-link-container span:first-of-type::after {
   content: " :";
   margin-left: 8px;
 }
 
-#short-link-input {
+.short-link-input {
   font-size: 18px;
-  color: #c5bebe;
   font-family: monospace;
 }
 
-#copy-short-link-btn {
+.copy-short-link-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -246,25 +224,23 @@
   border: 0;
   outline: 0;
   font-size: 30px;
-  color: royalblue;
   background-color: transparent;
 }
 
-#social-medias {
+.social-medias {
   width: calc(100% - 16px);
   height: 134px;
-  background-color: #1b1a55;
   border-radius: 10px;
   overflow: hidden;
 }
 
-#social-medias .title {
+.social-medias .title {
   font-size: 18px;
   margin: 15px 0;
   padding-bottom: 2px;
 }
 
-#social-medias-nav {
+.social-medias-nav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -272,21 +248,21 @@
   width: 100%;
 }
 
-#social-medias-nav ul {
+.social-medias-nav ul {
   list-style-type: none;
 }
 
-#social-medias-nav ul li {
+.social-medias-nav ul li {
   display: inline-block;
 }
 
 @media screen and (max-width: 1000px) {
-  #content {
+  .content {
     margin-bottom: 0;
     border-radius: 0;
   }
 
-  #article-header {
+  .article-header {
     margin: 0 0 30px 0;
     border-radius: 0;
   }
@@ -299,35 +275,29 @@
   .text {
     width: 100%;
   }
-
-  .sub-title {
-    width: calc(100% - 20px);
-  }
 }
-
 @media screen and (max-width: 800px) {
-  #article-thumbnail {
+  .article-thumbnail {
     width: 450px;
     height: 350px;
     object-fit: fill;
     border-radius: 10px;
     margin: 0 auto;
   }
-  #textarea {
+  .textarea {
     width: 100%;
     margin: 20px 0;
   }
 }
-
 @media screen and (max-width: 600px) {
-  #article-thumbnail {
+  .article-thumbnail {
     width: 350px;
     height: 250px;
     object-fit: fill;
     border-radius: 10px;
     margin: 0 auto;
   }
-  #article-title {
+  .article-title {
     font-size: 1.3em;
   }
   .sub-title {
@@ -336,20 +306,19 @@
   .text {
     font-size: 16px;
   }
-  #article-bottom {
+  .article-bottom {
     width: 100%;
     margin: 0;
   }
-  #author-name {
+  .author-name {
     font-size: 1.1em;
   }
-  #author-biography {
+  .author-biography {
     font-size: 1em;
   }
 }
-
 @media screen and (max-width: 400px) {
-  #article-thumbnail {
+  .article-thumbnail {
     width: 300px;
     height: 200px;
     object-fit: fill;

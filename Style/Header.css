@@ -2,7 +2,6 @@
   position: absolute;
   top: 0;
   height: 4px;
-  background-color: #f1bd07;
   z-index: 1000;
 }
 header {
@@ -26,7 +25,6 @@ header {
   justify-content: center;
   align-items: center;
   padding: 0;
-  background-color: #272829;
 }
 
 header .search-bar-form {
@@ -40,7 +38,6 @@ header .search-bar-form {
   border: 0;
   font-size: 30px;
   background-color: transparent;
-  color: royalblue;
   top: 0;
   margin-top: 0;
   transform: translateY(100%);
@@ -68,9 +65,8 @@ header .search-bar-form {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3px;
+  margin-top: 2px;
   padding: 20px 0;
-  background-color: #272829;
   box-shadow: 0 20px 20px -15px #f1bd07;
 }
 
@@ -94,13 +90,6 @@ header .search-bar-form {
   margin-left: 20px;
   font-family: Dirooz;
 }
-.menu-li a {
-  color: #dad6d6;
-}
-.menu-li a:hover {
-  color: #f1bd07;
-}
-
 .menu-li .container {
   display: flex;
   align-items: center;
@@ -111,7 +100,6 @@ header .search-bar-form {
 }
 
 .sub-menu-ul {
-  background-color: #45474b;
   border-radius: 10px;
   padding: 20px 30px 20px 20px;
   position: absolute;
@@ -127,7 +115,6 @@ header .search-bar-form {
   font-size: 1em;
   list-style-type: disc;
   font-style: normal;
-  color: #f1bd07 !important;
   font-family: Dirooz;
 }
 
@@ -174,7 +161,6 @@ header .search-bar-form {
     position: absolute;
     width: 300px;
     height: 100vh;
-    background-color: #46474b;
     z-index: 200;
     right: -100%;
     transition: all 0.5s;
@@ -187,7 +173,6 @@ header .search-bar-form {
     top: 8px;
     width: calc(95% - 20px);
     height: 50px;
-    background-color: #ff5c39;
     border: 0;
     border-radius: 10px;
   }
@@ -208,7 +193,6 @@ header .search-bar-form {
     align-items: center;
     width: calc(95% - 20px);
     padding: 10px;
-    background-color: #1b1a1d;
     margin: 5px 0;
     border-radius: 10px;
   }
@@ -259,7 +243,6 @@ header .search-bar-form {
     border: 0;
     font-size: 18px;
     font-family: Sepahbod;
-    color: #dad6d6;
   }
   #menu-icon {
     width: 40px;
