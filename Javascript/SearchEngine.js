@@ -6,9 +6,6 @@ const SearchPreviewContainer = document.querySelector(".search-preview-container
 const SearchInputContainer = document.querySelector(".search-input-container");
 const SearchSomething = document.querySelector(".search-something");
 const NoResultBox = document.querySelector(".no-result-box");
-const Header = document.querySelector("header");
-const Footer = document.querySelector("footer");
-const Row = document.querySelector("#row");
 // Flag
 let SearchMode = false;
 // Functions
@@ -73,24 +70,16 @@ function ResetSearchBar() {
   SearchSomething.classList.replace("hidden", "flex");
   SearchInput.value = "";
   SearchMode = false;
-  Header.classList.remove("blur");
-  Footer.classList.remove("blur");
-  Row.classList.remove("blur");
 }
 // Event listeners
 ShowSearchOverlayBtn.addEventListener("click", () => {
   SearchOverlay.style.display = "flex";
   SearchInput.value = "";
-  Header.classList.add("blur");
-  Footer.classList.add("blur");
-  Row.classList.add("blur");
   SearchMode = true;
 });
 document.body.addEventListener("click", (event) => {
   const TargetClassName = event.target.className;
   if (TargetClassName.includes("show-search-overlay-btn")) return;
-  if (SearchMode && !TargetClassName.includes("search-input") && !TargetClassName.includes("search")) {
-    ResetSearchBar();
-  }
+  if (SearchMode && TargetClassName.includes("search-overlay")) ResetSearchBar();
 });
 SearchInput.addEventListener("input", FetchPreviews);

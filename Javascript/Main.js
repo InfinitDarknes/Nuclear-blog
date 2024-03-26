@@ -5,6 +5,51 @@ function ScrollBar() {
   let Precentage = ((CurrentPosition / Height) * 100).toFixed(0);
   ScrollBarElement.style.width = `${Precentage}%`;
 }
+function LoadHomePage() {
+  const Main = document.querySelector("main");
+  Main.innerHTML = "";
+  const GalleryTitle = document.createElement("span");
+  GalleryTitle.className = "gallery-title";
+  GalleryTitle.innerText = "پست هایی که باید بخوانید";
+  const PostBannersContainer = document.createElement("section");
+  PostBannersContainer.id = "post-banners-container";
+  Main.append(GalleryTitle, PostBannersContainer);
+  // Generate some post banner on window load
+  let Page = CurrentPage;
+  let Start = (Page - 1) * LayoutSettings.BannerPerPage;
+  let End = Page * LayoutSettings.BannerPerPage;
+  BannerGenerator(Start, End);
+  Pagination();
+}
+function CheckLocationHash() {
+  if (!location.hash) {
+    LoadHomePage();
+    GenerateAllTagsSidebarItem();
+  } else {
+    let FetchedPost = Posts.find((Post) => {
+      return Post.Path === location.hash.slice(1);
+    });
+    GeneratePost(FetchedPost);
+    GenerateAllTagsSidebarItem();
+    window.scrollTo(0, 0);
+  }
+}
+function ToggleBackgroundBlur() {
+  const Header = document.querySelector("header");
+  const Footer = document.querySelector("footer");
+  const Row = document.querySelector("#row");
+  Header.classList.toggle("blur");
+  Footer.classList.toggle("blur");
+  Row.classList.toggle("blur");
+}
+window.onload = function () {
+  UpdateTags();
+  CheckLocationHash();
+};
+window.addEventListener("hashchange", () => {
+  CheckLocationHash();
+  ResetSearchBar();
+});
 window.addEventListener(
   "scroll",
   () => {
