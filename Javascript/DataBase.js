@@ -331,34 +331,36 @@ let Posts = [
     ],
   },
 ];
-// Empty template for posts
-let obj = {
-  Path: "-",
-  Title: "",
-  ThumbnailSrc: "",
-  ThumbnailAlt: "",
-  ThumbnailTitle: "",
-  ThumbnailGallery: null,
-  Date: "۱۴۰۱/۱۲/۲۹",
-  Tags: [],
-  Author: Authors.Arash,
-  Comments: false,
-  ArticleSections: [
-    {
-      SectionTitle: "",
-      Paragraphs: [],
-    },
-    {
-      SectionTitle: "",
-      Paragraphs: [],
-    },
-    {
-      SectionTitle: "",
-      Paragraphs: [],
-    },
-  ],
+let CategoriesArray = {
+  IranNuclearProgram: {
+    KeyName: "IranNuclearProgram",
+    DisplayName: "برنامه هسته ای ایران",
+    Tags: [Tags.Iran, Tags.Nuclear],
+    Href: "",
+    IconSrc: "CategoryImages/IranFlag.jpg",
+  },
+  RussiaNuclearProgram: {
+    KeyName: "RussiaNuclearProgram",
+    DisplayName: "برنامه هسته ای روسیه",
+    Tags: [Tags.Russia, Tags.Nuclear],
+    Href: "",
+    IconSrc: "CategoryImages/RussiaFlag.jpg",
+  },
+  USANuclearProgram: {
+    KeyName: "USANuclearProgram",
+    DisplayName: "برنامه هسته ای آمریکا",
+    Tags: [Tags.USA, Tags.Nuclear],
+    Href: "",
+    IconSrc: "CategoryImages/USAFlag.jpg",
+  },
+  EnglandNuclearProgram: {
+    KeyName: "EnglandNuclearProgram",
+    DisplayName: "برنامه هسته ای انگلیس",
+    Tags: [Tags.England, Tags.Nuclear],
+    Href: "",
+    IconSrc: "CategoryImages/EnglandFlag.jpg",
+  },
 };
-
 let SocialMediasArray = [
   { Name: "تلگرام", Href: "", Icon: "../Icons/TelegramIcon.png" },
   { Name: "توییتر", Href: "", Icon: "../Icons/TwitterIcon.png" },

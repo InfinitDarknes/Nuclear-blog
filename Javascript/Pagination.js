@@ -1,25 +1,24 @@
-const PostBannersContainer = document.getElementById("post-banners-container");
 let LayoutSettings = {
-  BannerPerPage: 10,
+  BannerPerPage: 6,
   MaxPaginationButtons: 5,
 };
 let CurrentPage = 1;
-function BannerGenerator(Start, End) {
-  const PostBannersContainer = document.getElementById("post-banners-container");
+function BannerGenerator(PostsArray = Posts) {
+  const PostBannersContainer = document.querySelector(".post-banners-container");
   PostBannersContainer.innerHTML = "";
-  let SlicedPosts = Posts.slice(Start, End);
   let BannerFragments = document.createDocumentFragment();
-  SlicedPosts.forEach((Post) => {
+  PostsArray.forEach((Post) => {
     const PostBanner = document.createElement("article");
-    PostBanner.className = "post-banner";
+    PostBanner.className =
+      "post-banner flex flex-col items-center lg:items-end lg:flex-row  p-4 w-full bg-zinc-900 lg:rounded-md mb-2 overflow-hidden";
     const PostBannerImageContainer = document.createElement("section");
-    PostBannerImageContainer.className = "post-banner-image-container";
+    PostBannerImageContainer.className = "post-banner-image-container w-72 lg:w-48 h-48 lg:h-36 ";
     //
     const PostBannerInfoSection = document.createElement("section");
-    PostBannerInfoSection.className = "post-banner-info-section";
+    PostBannerInfoSection.className = "post-banner-info-section relative flex flex-col lg:mr-4 items-center lg:items-start w-full mt-4 lg:mt-0";
     //
     const PostBannerImage = document.createElement("img");
-    PostBannerImage.className = "post-banner-image";
+    PostBannerImage.className = "post-banner-image object-fill w-full h-full";
     PostBannerImage.src = Post.ThumbnailSrc;
     PostBannerImage.alt = Post.ThumbnailAlt;
     PostBannerImage.title = Post.ThumbnailTitle;
@@ -31,20 +30,21 @@ function BannerGenerator(Start, End) {
     BannerTitleLinkTag.href = `#${Post.Path}`;
     //
     const BannerTitle = document.createElement("h2");
-    BannerTitle.className = "banner-title";
+    BannerTitle.className = "banner-title text-blue-600 text-xl hover:text-yellow-500";
     BannerTitle.innerText = Post.Title;
     //
     const BannerDate = document.createElement("span");
-    BannerDate.className = "date text-orange-600";
+    BannerDate.className = "article-date text-orange-600 text-base font-Sepahbod";
     BannerDate.innerText = Post.Date;
     //
     const BannerDescription = document.createElement("p");
-    BannerDescription.className = "banner-description";
+    BannerDescription.className = "banner-description text-justify text-base text-white font-Dirooz mb-9";
     let Description = Post.ArticleSections[0].Paragraphs[0].substring(0, 400);
     BannerDescription.innerText = Description;
     //
     const ViewPostLink = document.createElement("a");
-    ViewPostLink.className = "view-post-link text-blue-600";
+    ViewPostLink.className =
+      "view-post-link flex items-center absolute -bottom-4 -left-4 w-fit p-1.5 text-lg font-Dirooz bg-stone-800 text-blue-600 hover:text-yellow-500 transition duration-300";
     ViewPostLink.href = `#${Post.Path}`;
     ViewPostLink.innerText = "ادامه مطلب";
     //
@@ -57,86 +57,90 @@ function BannerGenerator(Start, End) {
   });
   PostBannersContainer.append(BannerFragments);
 }
-function Pagination() {
-  const Pagination = document.getElementById("pagination");
-  if (Pagination) Pagination.remove();
-  let PageCount = Math.ceil(Posts.length / LayoutSettings.BannerPerPage);
+function Pagination(TargetPosts = Posts, Page = 1) {
+  // Initial pagination
+  let Start = (Page - 1) * LayoutSettings.BannerPerPage;
+  let End = Page * LayoutSettings.BannerPerPage;
+  CurrentPage = Page;
+  let SlicedPosts = Array.from(TargetPosts.slice(Start, End));
+  BannerGenerator(SlicedPosts);
+  GeneratePaginationBar(TargetPosts);
+}
+function GeneratePaginationBar(TargetPosts = Posts) {
+  let PageCount = Math.ceil(TargetPosts.length / LayoutSettings.BannerPerPage);
+  //
+  const PaginationElem = document.querySelector(".pagination");
+  if (PaginationElem) PaginationElem.remove();
+  //
   const PaginationContainer = document.createElement("section");
-  PaginationContainer.id = "pagination";
+  PaginationContainer.className = "pagination w-full h-16 p-3 flex flex-row-reverse justify-center items-center bg-zinc-900 lg:rounded-md";
   //
   const PaginationBtnsContainer = document.createElement("section");
-  PaginationBtnsContainer.id = "pagination-buttons";
+  PaginationBtnsContainer.className = "pagination-buttons order-4 flex flex-row-reverse";
   //
   const NextPageBtn = document.createElement("button");
-  NextPageBtn.className = "pagination-btn";
+  NextPageBtn.className =
+    "pagination-btn flex order-7 justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
   NextPageBtn.id = "next-page-btn";
   const NextPageBtnIcon = document.createElement("img");
-  NextPageBtnIcon.className = "pagination-btn-icon";
+  NextPageBtnIcon.className = "pagination-btn-icon w-8 h-8";
   NextPageBtnIcon.src = "../Icons/RightArrowIcon.png";
   NextPageBtn.addEventListener("click", () => {
     if (CurrentPage >= PageCount) return;
     CurrentPage++;
-    let Start = (CurrentPage - 1) * LayoutSettings.BannerPerPage;
-    let End = CurrentPage * LayoutSettings.BannerPerPage;
+    Pagination(TargetPosts, CurrentPage);
     window.scrollTo(0, 0);
-    BannerGenerator(Start, End);
-    Pagination();
   });
   NextPageBtn.append(NextPageBtnIcon);
   //
   const PrevPageBtn = document.createElement("button");
-  PrevPageBtn.className = "pagination-btn";
+  PrevPageBtn.className =
+    "pagination-btn flex order-1 justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
   PrevPageBtn.id = "prev-page-btn";
   const PrevPageBtnIcon = document.createElement("img");
-  PrevPageBtnIcon.className = "pagination-btn-icon";
+  PrevPageBtnIcon.className = "pagination-btn-icon w-8 h-8";
   PrevPageBtnIcon.src = "../Icons/LeftArrowIcon.png";
   PrevPageBtn.addEventListener("click", () => {
     if (CurrentPage <= 1) return;
     CurrentPage--;
-    let Start = (CurrentPage - 1) * LayoutSettings.BannerPerPage;
-    let End = CurrentPage * LayoutSettings.BannerPerPage;
+    Pagination(TargetPosts, CurrentPage);
     window.scrollTo(0, 0);
-    BannerGenerator(Start, End);
-    Pagination();
   });
   PrevPageBtn.append(PrevPageBtnIcon);
   //
   const FirstPageBtn = document.createElement("button");
-  FirstPageBtn.className = "pagination-btn";
+  FirstPageBtn.className =
+    "pagination-btn flex order-2 justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
   FirstPageBtn.id = "first-page-btn";
   FirstPageBtn.innerText = "1";
   FirstPageBtn.dataset.page = "1";
   FirstPageBtn.addEventListener("click", () => {
-    let Start = (1 - 1) * LayoutSettings.BannerPerPage;
-    let End = 1 * LayoutSettings.BannerPerPage;
     CurrentPage = 1;
+    Pagination(TargetPosts, CurrentPage);
     window.scrollTo(0, 0);
-    BannerGenerator(Start, End);
-    Pagination();
   });
   //
   const LastPageBtn = document.createElement("button");
-  LastPageBtn.className = "pagination-btn";
+  LastPageBtn.className =
+    "pagination-btn flex order-6 justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
   LastPageBtn.id = "last-page-btn";
   LastPageBtn.innerText = PageCount;
   LastPageBtn.dataset.page = PageCount;
   LastPageBtn.addEventListener("click", () => {
-    let Start = (PageCount - 1) * LayoutSettings.BannerPerPage;
-    let End = PageCount * LayoutSettings.BannerPerPage;
     CurrentPage = PageCount;
+    Pagination(TargetPosts, CurrentPage);
     window.scrollTo(0, 0);
-    BannerGenerator(Start, End);
-    Pagination();
   });
   //
   const RightEtcBtn = document.createElement("button");
-  RightEtcBtn.className = "pagination-btn";
+  RightEtcBtn.className =
+    "pagination-btn flex order-5 justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
   RightEtcBtn.id = "right-etc-btn";
   RightEtcBtn.innerText = "....";
   RightEtcBtn.setAttribute("inert", "");
   //
   const leftEtcBtn = document.createElement("button");
-  leftEtcBtn.className = "pagination-btn";
+  leftEtcBtn.className = "pagination-btn flex order-3 justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
   leftEtcBtn.id = "left-etc-btn";
   leftEtcBtn.innerText = "....";
   leftEtcBtn.setAttribute("inert", "");
@@ -151,28 +155,27 @@ function Pagination() {
   }
   // if we go to far so the first page button gets hidden we are gonna append one for easy access
   if (CurrentPage >= LayoutSettings.MaxPaginationButtons - 1) {
-    PaginationBtnsContainer.append(FirstPageBtn, leftEtcBtn);
+    PaginationContainer.append(FirstPageBtn, leftEtcBtn);
   }
   // Append the pagination button
   for (let i = RangeStart; i < RangeEnd; i++) {
     const PaginationBtn = document.createElement("button");
-    PaginationBtn.className = "pagination-btn";
+    PaginationBtn.className = "pagination-btn flex justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
     PaginationBtn.setAttribute("data-page", i);
     PaginationBtn.innerText = i;
     PaginationBtn.addEventListener("click", () => {
-      let Page = Number(PaginationBtn.dataset.page);
-      Start = (Page - 1) * LayoutSettings.BannerPerPage;
-      End = Page * LayoutSettings.BannerPerPage;
-      CurrentPage = Page;
+      CurrentPage = Number(PaginationBtn.dataset.page);
+      Pagination(TargetPosts, CurrentPage);
       window.scrollTo(0, 0);
-      BannerGenerator(Start, End);
-      Pagination();
     });
     PaginationBtnsContainer.append(PaginationBtn);
   }
   // if we are at early buttons we are gonna append last page button for easy access
-  if (CurrentPage !== PageCount - 1 && CurrentPage !== PageCount) {
-    PaginationBtnsContainer.append(RightEtcBtn, LastPageBtn);
+  if (RangeEnd <= PageCount) {
+    PaginationContainer.append(LastPageBtn);
+  }
+  if (CurrentPage < PageCount - 2) {
+    PaginationContainer.append(RightEtcBtn);
   }
   // Highlight current page
   const PaginationButtons = document.querySelectorAll(".pagination-btn");

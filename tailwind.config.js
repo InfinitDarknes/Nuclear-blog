@@ -1,9 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: { enabled: true, content: ["index.html"] },
-  content: ["index.html"],
+  content: ["index.html", "Javascript/*.js"],
   theme: {
-    extend: {},
+    fontFamily: {
+      Dirooz: "Dirooz",
+      Sepahbod: "Sepahbod",
+    },
+    extend: {
+      colors: {
+        white: "#dad6d6",
+      },
+    },
   },
   plugins: [],
 };
