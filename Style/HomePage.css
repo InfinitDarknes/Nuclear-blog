@@ -1,5 +1,0 @@
-.view-post-link::after {
-  content: "⬅";
-  font-size: 1.1em;
-  margin-right: 8px;
-}
