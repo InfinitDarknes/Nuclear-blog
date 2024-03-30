@@ -1,0 +1,219 @@
+.big-slider {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: fill;
+  overflow: hidden;
+  border-radius: 0;
+  background-color: rgba(39, 40, 41, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+.big-slider .slider-image {
+  display: none;
+  width: calc(100% - 260px);
+  height: calc(100% - 260px);
+  object-fit: contain;
+  border-radius: 0;
+  cursor: pointer;
+}
+.big-slider .active-image {
+  display: block !important;
+}
+.big-slider .image-slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 60px;
+  background-color: rgb(27, 26, 29);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  transition: all 230ms ease;
+  cursor: pointer;
+}
+.big-slider .prev-image-button {
+  left: 20px;
+}
+.big-slider .next-image-button {
+  right: 20px;
+}
+.big-slider .slider-button-icon {
+  width: 50px;
+  height: 50px;
+}
+/* Slider top bar ( only image viewer )*/
+.big-slider .slider-top-bar {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  width: calc(95% - 30px);
+  padding: 15px;
+  background-color: rgb(27, 26, 29);
+  border-radius: 10px;
+}
+.big-slider .slider-top-bar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 0 8px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #272829;
+}
+.big-slider .slider-top-bar-btn img {
+  width: 25px;
+  height: 25px;
+}
+.big-slider .close-image-viewer-btn {
+  position: absolute;
+  right: 10px;
+}
+/* Slider track*/
+.big-slider .slider-track {
+  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  bottom: 20px;
+  border-radius: 10px;
+  width: 80%;
+  height: fit-content;
+  padding: 20px 0;
+  background-color: rgb(27, 26, 29);
+}
+.big-slider .slider-circle {
+  width: 18px;
+  height: 18px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: #dad6d6;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.big-slider .active-slider-circle {
+  width: 25px;
+  height: 25px;
+  background-color: #f1bd07;
+}
+@media screen and (max-width: 1000px) {
+  .big-slider .slider-image {
+    width: calc(100% - 200px);
+    height: calc(100% - 180px);
+  }
+  .big-slider .image-slider-button {
+    width: 50px;
+  }
+  .big-slider .prev-image-button {
+    left: 10px;
+  }
+  .big-slider .next-image-button {
+    right: 10px;
+  }
+  .big-slider .slider-button-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .big-slider .slider-track {
+    bottom: 10px;
+    width: 90%;
+    padding: 15px 0;
+  }
+  .big-slider .slider-circle {
+    width: 15px;
+    height: 15px;
+  }
+  .big-slider .active-slider-circle {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .big-slider .slider-image {
+    width: calc(100% - 160px);
+    height: calc(100% - 170px);
+  }
+  .big-slider .slider-track {
+    bottom: 10px;
+    width: 90%;
+    padding: 10px 0;
+  }
+  .big-slider .slider-circle {
+    width: 10px;
+    height: 10px;
+  }
+  .big-slider .active-slider-circle {
+    width: 15px;
+    height: 15px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .big-slider .slider-image {
+    width: calc(100% - 140px);
+    height: calc(100% - 170px);
+  }
+  .big-slider .image-slider-button {
+    width: 40px;
+    height: 40%;
+  }
+  .big-slider .slider-button-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .big-slider .slider-track {
+    bottom: 10px;
+    width: 90%;
+    padding: 10px 0;
+  }
+  .big-slider .slider-circle {
+    width: 10px;
+    height: 10px;
+  }
+  .big-slider .active-slider-circle {
+    width: 15px;
+    height: 15px;
+  }
+  .big-slider .slider-top-bar {
+    top: 10px;
+    width: calc(95% - 20px);
+    padding: 10px;
+  }
+  .big-slider .slider-top-bar-btn {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+  }
+  .big-slider .slider-top-bar-btn img {
+    width: 25px;
+    height: 25px;
+  }
+  .big-slider .close-image-viewer-btn {
+    position: absolute;
+    right: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .big-slider .slider-image {
+    width: calc(100% - 130px);
+    height: calc(100% - 170px);
+  }
+  .big-slider .image-slider-button {
+    height: 30%;
+  }
+}

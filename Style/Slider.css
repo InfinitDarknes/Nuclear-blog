@@ -1,0 +1,117 @@
+.image-slider {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  object-fit: fill;
+  border-radius: 10px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.slider-image {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.active-image {
+  display: block !important;
+}
+.image-slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  transition: all 230ms ease;
+  cursor: pointer;
+}
+.slider-button-icon {
+  width: 30px;
+  height: 30px;
+}
+.prev-image-button:hover {
+  background-color: rgba(241, 189, 7, 0.4);
+}
+.next-image-button:hover {
+  background-color: rgba(241, 189, 7, 0.4);
+}
+.prev-image-button {
+  left: 5px;
+}
+.next-image-button {
+  right: 5px;
+}
+/* Slider top bar ( only image viewer )*/
+.slider-top-bar {
+  display: none;
+}
+/* Slider track*/
+.slider-track {
+  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.slider-circle {
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  border-radius: 50%;
+  background-color: #dad6d6;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.active-slider-circle {
+  width: 15px;
+  height: 15px;
+  background-color: #f1bd07;
+}
+@media screen and (max-width: 1000px) {
+  .image-slider {
+    width: 80%;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .image-slider {
+    width: 90%;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .image-slider {
+    width: 90%;
+    height: 300px;
+  }
+  .image-slider-button {
+    height: 50px;
+    width: 50px;
+  }
+  .slider-button-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .image-slider {
+    width: 90%;
+    height: 250px;
+  }
+}
