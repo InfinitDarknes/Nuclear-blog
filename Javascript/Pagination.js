@@ -35,7 +35,7 @@ function BannerGenerator(PostsArray = Posts) {
     BannerTitleLinkTag.className = "text-blue-600 text-xl";
     //
     const BannerTitle = document.createElement("h2");
-    BannerTitle.className = "banner-title";
+    BannerTitle.className = "banner-title text-center";
     BannerTitle.innerText = Post.Title;
     //
     const BannerDate = document.createElement("span");
