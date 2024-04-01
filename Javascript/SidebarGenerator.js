@@ -7,7 +7,7 @@ function GenerateAllTagsSidebarItem() {
   RightSidebar.className =
     "right-sidebar flex flex-col w-full h-fit lg:mr-2 lg:rounded-md lg:w-1/5 order-2 lg:order-1";
   const AllTagsSection = document.createElement("section");
-  AllTagsSection.className = "bg-zinc-800 mb-3 p-3 rounded-md";
+  AllTagsSection.className = "bg-zinc-800 p-3 lg:rounded-md";
   AllTagsSection.id = "all-tags-section";
   const AllTagsSectionTitleContainer = document.createElement("section");
   const AllTagsSectionTitleIcon = document.createElement("img");

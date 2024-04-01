@@ -1170,6 +1170,18 @@ video {
   margin-top: 1rem;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mb-0\.5 {
+  margin-bottom: 0.125rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1922,6 +1934,10 @@ body {
 
   .lg\:mt-3 {
     margin-top: 0.75rem;
+  }
+
+  .lg\:mb-0 {
+    margin-bottom: 0px;
   }
 
   .lg\:flex {
