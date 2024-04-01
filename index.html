@@ -10,41 +10,41 @@
 
 <body class="bg-zinc-700 line-pattern">
   <header class="flex flex-col fixed w-full top-0 z-10">
-    <section class="first-header-row hiddens lg:flexs justify-center items-center w-full bg-zinc-900">
+    <section class="first-header-row hidden lg:flex justify-center items-center w-full bg-zinc-900">
       <a href="#"><img src="Logo/Iranium.png" alt="" class="logo flex justify-center items-center w-40 h-32 ml-8" /></a>
     </section>
-    <section class="header-menu-containers relative w-full flex justify-center items-center py-3 lg:py-5  bg-zinc-900 mt-0 lg:mt-0.5 shadow-lg shadow-yellow-500">
+    <section class="header-menu-container relative w-full flex justify-center items-center py-3 lg:py-5 bg-zinc-900 mt-0 lg:mt-0.5 shadow-lg shadow-yellow-500">
       <button class="show-menu-btn flex lg:hidden flex-col justify-center items-center bg-transparent border-0  absolute right-3">
         <img src="Icons/MenuIcon.png" class="menu-icon ml-2 w-8 h-8" alt="" inert />
-        <span class="text-center text-lg font-Sepahbod text-white">منو</span>
+        <span class="text-center text-lg font-Title text-white">منو</span>
       </button>
       <nav id="header-menu-nav" class="hidden lg:flex">
         <ul class="menu-ul flex items-center list-none">
-          <li class="inline-block text-base ml-5 font-Dirooz transition duration-300 text-blue-600 relative hover:text-yellow-500">
+          <li class="inline-block text-lg ml-5 font-Text transition duration-300 text-blue-600 relative hover:text-yellow-500">
             <div class=" flex items-center">
               <img src="../Icons/HomeIcon.png" alt="" class="header-icon w-8 h-8 mx-2" />
               <a href="#" target="_blank">خانه</a>
             </div>
           </li>
-          <button class="categories-drop-down-btn inline-block text-base ml-5 font-Dirooz transition duration-300 text-blue-600 relative hover:text-yellow-500" data-drop-down-btn>
+          <button class="categories-drop-down-btn inline-block text-lg ml-5 font-Text transition duration-300 text-blue-600 relative hover:text-yellow-500" data-drop-down-btn>
             <div class="flex items-center" inert>
               <img src="../Icons/CategoriesIcon.png" alt="" class="header-icon w-8 h-8 mx-2" inert />
               <a href="../list-of-posts/index.html" inert>دسته بندی</a>
             </div>
           </button>
-          <button class="all-posts-drop-down-btn inline-block text-base ml-5 font-Dirooz transition duration-300 text-blue-600 relative hover:text-yellow-500" data-drop-down-btn>
+          <button class="all-posts-drop-down-btn inline-block text-lg ml-5 font-Text transition duration-300 text-blue-600 relative hover:text-yellow-500" data-drop-down-btn>
             <div class="flex items-center" inert>
               <img src="../Icons/PostsIcon.png" alt="" class="header-icon w-8 h-8 mx-2" />
               <a href="">همه پست ها</a>
             </div>
           </button>
-          <li class="inline-block text-base ml-5 font-Dirooz transition duration-1000 text-blue-600 relative hover:text-yellow-500">
+          <li class="inline-block text-lg ml-5 font-Text transition duration-1000 text-blue-600 relative hover:text-yellow-500">
             <div class=" flex items-center">
               <img src="../Icons/VideoIcon.png" alt="" class="header-icon w-8 h-8 mx-2" />
               <a href="">ویدیو ها</a>
             </div>
           </li>
-          <li class="inline-block text-base ml-5 font-Dirooz transition duration-1000 text-blue-600 relative hover:text-yellow-500">
+          <li class="inline-block text-lg ml-5 font-Text transition duration-1000 text-blue-600 relative hover:text-yellow-500">
             <div class=" flex items-center">
               <img src="../Icons/BookIcon.png" alt="" class="header-icon w-8 h-8 mx-2" />
               <a href="">دانشنامه هسته ای</a>
@@ -56,43 +56,43 @@
       <button class="show-search-overlay-btn flex justify-center items-center h-full w-16 absolute left-0 border-0 transition duration-300 bg-orange-600 hover:bg-yellow-500"><img class="w-6 h-6"
           src="Icons/SearchIcon.png" alt="" inert /></button>
     </section>
-    <section class="mobile-menu flex flexs-col items-start absolute -right-full w-80 h-lvh z-50 transition-all duration-500 bg-zinc-800">
+    <section class="mobile-menu flex flex-col items-start absolute -right-full w-80 h-lvh z-50 transition-all duration-500 bg-zinc-800">
       <button class="close-mobile-menu-btn flex justify-center items-center absolute top-2 w-2/12 h-12 mr-4 border-0 rounded-md bg-red-800">
         <img src="Icons/CloseIcon.png" alt="" class="close-icon w-8 h-8" />
       </button>
       <ul class="mobile-menu-ul flex flex-col items-center w-full mt-20 list-none">
         <li class="mobile-menu-li relative flex items-center w-11/12 p-3 my-1.5 rounded-md  bg-zinc-900">
           <img src="Icons/HomeIcon.png" alt="" class="menu-icon w-6 h-6 ml-2" />
-          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Dirooz text-blue-600">خانه</a>
+          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Text text-blue-600">خانه</a>
         </li>
         <li class="mobile-menu-li relative flex items-center w-11/12 p-3 my-1.5 rounded-md bg-zinc-900">
           <img src="Icons/CategoriesIcon.png" alt="" class="menu-icon w-6 h-6 ml-2" />
-          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Dirooz text-blue-600">دسته بندی</a>
+          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Text text-blue-600">دسته بندی</a>
           <button class="collapse-btn absolute left-2 bg-transparent border-0"><img src="Icons/DownArrowIcon.png" alt="" class="collapse-icon w-5 h-5" /></button>
         </li>
         <li class="mobile-menu-li relative flex items-center w-11/12 p-3 my-1.5 rounded-md bg-zinc-900">
           <img src="Icons/ContentsIcon.png" alt="" class="menu-icon w-6 h-6 ml-2" />
-          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Dirooz text-blue-600">همه پست ها</a>
+          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Text text-blue-600">همه پست ها</a>
         </li>
         <li class="mobile-menu-li relative flex items-center w-11/12 p-3 my-1.5 rounded-md bg-zinc-900">
           <img src="Icons/TVIcon.png" alt="" class="menu-icon w-6 h-6 ml-2" />
-          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Dirooz text-blue-600">تلویزیون نوترینو</a>
+          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Text text-blue-600">تلویزیون نوترینو</a>
         </li>
         <li class="mobile-menu-li relative flex items-center w-11/12 p-3 my-1.5 rounded-md bg-zinc-900">
           <img src="Icons/VideoIcon.png" alt="" class="menu-icon w-6 h-6 ml-2" />
-          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Dirooz text-blue-600">ویدیو ها</a>
+          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Text text-blue-600">ویدیو ها</a>
         </li>
         <li class="mobile-menu-li relative flex items-center w-11/12 p-3 my-1.5 rounded-md bg-zinc-900">
           <img src="Icons/BookIcon.png" alt="" class="menu-icon w-6 h-6 ml-2" />
-          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Dirooz text-blue-600">دانشنامه هسته ای</a>
+          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Text text-blue-600">دانشنامه هسته ای</a>
         </li>
         <li class="mobile-menu-li relative flex items-center w-11/12 p-3 my-1.5 rounded-md bg-zinc-900">
           <img src="Icons/ContactUsIcon.png" alt="" class="menu-icon w-6 h-6 ml-2" />
-          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Dirooz text-blue-600">ارتباط با ادمین</a>
+          <a href="#" class="mobile-menu-li inline-block text-base ml-5 font-Text text-blue-600">ارتباط با ادمین</a>
         </li>
       </ul>
     </section>
-    <div id="scrollbar" class="bg-yellow-500 absolute top-0 h-1 z-50"></div>r
+    <div id="scrollbar" class="bg-yellow-500 absolute top-0 h-1 z-50"></div>
   </header>
   <section id="row" class="flex flex-col xl:flex-row items-start w-full mb-4 lg:mb-6">
     <div class="righ-column flex w-full flex-col lg:flex-row order-1 xl:basis-5/6">
@@ -100,7 +100,7 @@
     </div>
     <aside id="left-sidebar" class="order-3 w-full  xl:w-1/6 xl:ml-2 mt-2 xl:mt-0">
       <section class="bg-zinc-800 mb-3 p-3 xl:rounded-md">
-        <span class="flex items-center justify-center w-full p-3 mb-4 mx-auto text-center rounded-md font-Sepahbod text-xl bg-zinc-900 text-yellow-500">
+        <span class="flex items-center justify-center w-full p-3 mb-4 mx-auto text-center rounded-md font-Title text-xl bg-zinc-900 text-yellow-500">
           <img src="../Icons/NewsIcon.png" alt="" class="w-8 h-8 mx-2" />
           رویداد های داغ
         </span>
@@ -188,7 +188,7 @@
       </section>
 
       <section class="bg-zinc-800 mb-3 p-3 xl:rounded-md">
-        <span class="flex items-center justify-center w-full p-3 mb-4 mx-auto text-center rounded-md font-Sepahbod text-xl bg-zinc-900 text-yellow-500">
+        <span class="flex items-center justify-center w-full p-3 mb-4 mx-auto text-center rounded-md font-Title text-xl bg-zinc-900 text-yellow-500">
           <img src="../Icons/RecentIcon.png" alt="" class="w-8 h-8 mx-2" />
           پست های اخیر
         </span>
@@ -286,7 +286,7 @@
   <section class="search-overlay hidden w-full h-full items-center justify-center fixed top-0 z-30  bg-black/60 backdrop-blur-lg">
     <section class="search-box flex flex-col items-center justify-center w-11/12 lg:w-2/5 max-h-96 min-h-fit fixed z-40 bg-zinc-700 rounded-lg overflow-hidden">
       <div class="search-input-container w-full mb-4 relative min-h-16 overflow-hidden border-b-2 border-yellow-500">
-        <input type="text" class="search-input bg-stone-800 text-white w-full h-16 p-2 text-lg font-Dirooz" placeholder="جستجو در بلاگ" />
+        <input type="text" class="search-input bg-stone-800 text-white w-full h-16 p-2 text-lg font-Text" placeholder="جستجو در بلاگ" />
         <button class="search flex items-center justify-center border-0 w-16 h-full absolute left-0 top-0"><img class="search-icon w-8 h-8" src="Icons/SearchIcon.png" alt="" inert /></button>
       </div>
       <div class="search-preview-container hidden flex-col items-center w-full px-4 overflow-y-scroll max-h-full"></div>
@@ -294,7 +294,7 @@
         <img src="Icons/SearchAnythingIcon.png" class="w-20 h-20 my-4" alt="">
         <div class="w-full text-center text-white text-2xl">هر چی میخوای سرچ کن ....</div>
       </div>
-      <div class="no-result-box w-full p-3 hidden text-xl font-Dirooz text-center flex-col items-center justify-center" inert>
+      <div class="no-result-box w-full p-3 hidden text-xl font-Text text-center flex-col items-center justify-center" inert>
         <img src="Icons/NoResultIcon.png" class="w-20 h-20 my-4" alt="">
         <div class="w-full text-center text-white text-2xl">هیچ پستی با این مشخصات نیست :))</div>
       </div>

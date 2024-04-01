@@ -1,7 +1,8 @@
 function AssignTextToWindowTitle() {
   const MainTitle = document.querySelector(".main-title");
   const HeadTitleTag = document.querySelector("title");
-  if (!MainTitle) HeadTitleTag.innerText = "وبلاگ ایرانیوم - مقالات علمی و هسته ای";
+  if (!MainTitle)
+    HeadTitleTag.innerText = "وبلاگ ایرانیوم - مقالات علمی و هسته ای";
   else HeadTitleTag.innerText = `وبلاگ ایرانیوم - ${MainTitle.innerHTML}`;
 }
 function ToggleBackgroundBlur() {
@@ -29,7 +30,10 @@ function PlacePersianNumbers(Input) {
   ];
   for (n = 0; n < PersianNumbers.length; n++) {
     if (String.includes(PersianNumbers[n].English)) {
-      String = String.replaceAll(new RegExp(PersianNumbers[n].English, "g"), PersianNumbers[n].Persian);
+      String = String.replaceAll(
+        new RegExp(PersianNumbers[n].English, "g"),
+        PersianNumbers[n].Persian,
+      );
     }
   }
   return String;
@@ -38,6 +42,7 @@ function SetMarginForRow() {
   const Row = document.querySelector("#row");
   const Header = document.querySelector("header");
   const HeaderHeight = Header.getBoundingClientRect().height;
+  console.log(HeaderHeight);
   Row.style.marginTop = `${HeaderHeight + 35}px`;
 }
 // Loading content based on user location (window.location)
@@ -65,10 +70,11 @@ function LoadHomePage() {
   Main.innerHTML = "";
   const GalleryTitle = document.createElement("span");
   GalleryTitle.className =
-    "main-title gallery-title w-full h-14 flex items-center justify-center bg-zinc-900 text-xl text-yellow-500 font-Sepahbod lg:rounded-md";
+    "main-title gallery-title w-full h-14 flex items-center justify-center bg-zinc-900 text-xl text-yellow-500 font-Title lg:rounded-md";
   GalleryTitle.innerText = "صفحه اصلی";
   const PostBannersContainer = document.createElement("section");
-  PostBannersContainer.className = "post-banners-container flex flex-col mt-1 lg:mt-2";
+  PostBannersContainer.className =
+    "post-banners-container flex flex-col mt-1 lg:mt-2";
   Main.append(GalleryTitle, PostBannersContainer);
   Pagination();
 }
@@ -83,11 +89,14 @@ function LoadCategoryPage() {
   const GalleryTitleLabel = document.createElement("span");
   const GalleryTitleText = document.createElement("h2");
   const PostBannersContainer = document.createElement("section");
-  PostBannersContainer.className = "post-banners-container flex flex-col mt-2 lg:mt-3";
+  PostBannersContainer.className =
+    "post-banners-container flex flex-col mt-2 lg:mt-3";
   GalleryTitle.className =
-    "gallery-title w-full h-14 flex items-center justify-center bg-zinc-900 text-xl text-yellow-500 font-Sepahbod lg:rounded-md";
-  GalleryTitleLabel.className = "gallery-title-label text-xl text-yellow-500 font-Sepahbod ml-2";
-  GalleryTitleText.className = "gallery-title-text main-title text-xl text-yellow-500 font-Sepahbod";
+    "gallery-title w-full h-14 flex items-center justify-center bg-zinc-900 text-xl text-yellow-500 font-Title lg:rounded-md";
+  GalleryTitleLabel.className =
+    "gallery-title-label text-xl text-yellow-500 font-Title ml-2";
+  GalleryTitleText.className =
+    "gallery-title-text main-title text-xl text-yellow-500 font-Title";
   GalleryTitleText.innerText = `${TargetCategoryInfo.DisplayName}`;
   GalleryTitleLabel.innerText = "دسته بندی :";
   GalleryTitle.append(GalleryTitleLabel, GalleryTitleText);
@@ -122,7 +131,6 @@ function StickySidebar() {
   const HeaderHeight = document.querySelector("header").clientHeight;
   const LeftSidebar = document.querySelector("#left-sidebar");
   const RightSidebar = document.querySelector(".right-sidebar");
-  const MainElem = document.querySelector("main");
   const LeftSidebarHeight = LeftSidebar.clientHeight;
   const RightSidebarHeight = RightSidebar.clientHeight;
   if (window.scrollY >= LeftSidebarHeight - ViewPortHeight) {
@@ -182,3 +190,4 @@ window.addEventListener("scroll", () => {
   StickySidebar();
   MinimizeHeaderOnScroll();
 });
+window.addEventListener("resize", SetMarginForRow);

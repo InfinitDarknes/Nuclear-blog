@@ -4,17 +4,22 @@ let LayoutSettings = {
 };
 let CurrentPage = 1;
 function BannerGenerator(PostsArray = Posts) {
-  const PostBannersContainer = document.querySelector(".post-banners-container");
+  const PostBannersContainer = document.querySelector(
+    ".post-banners-container",
+  );
   PostBannersContainer.innerHTML = "";
   let BannerFragments = document.createDocumentFragment();
   PostsArray.forEach((Post) => {
     const PostBanner = document.createElement("article");
-    PostBanner.className = "post-banner flex flex-col items-center lg:flex-row  p-4 w-full bg-zinc-900 lg:rounded-md mb-2 overflow-hidden";
+    PostBanner.className =
+      "post-banner flex flex-col items-center lg:flex-row  p-4 w-full bg-zinc-900 lg:rounded-md mb-2 overflow-hidden";
     const PostBannerImageContainer = document.createElement("section");
-    PostBannerImageContainer.className = "post-banner-image-container w-72 lg:w-48 h-48 lg:h-36 ";
+    PostBannerImageContainer.className =
+      "post-banner-image-container w-72 lg:w-48 h-48 lg:h-36 ";
     //
     const PostBannerInfoSection = document.createElement("section");
-    PostBannerInfoSection.className = "post-banner-info-section relative flex flex-col lg:mr-4 items-center lg:items-start w-full mt-4 lg:mt-0";
+    PostBannerInfoSection.className =
+      "post-banner-info-section relative flex flex-col lg:mr-4 items-center lg:items-start w-full mt-4 lg:mt-0";
     //
     const PostBannerImage = document.createElement("img");
     PostBannerImage.className = "post-banner-image object-fill w-full h-full";
@@ -34,17 +39,18 @@ function BannerGenerator(PostsArray = Posts) {
     BannerTitle.innerText = Post.Title;
     //
     const BannerDate = document.createElement("span");
-    BannerDate.className = "article-date text-orange-600 text-base font-Sepahbod";
+    BannerDate.className = "article-date text-orange-600 text-base font-Title";
     BannerDate.innerText = Post.Date;
     //
     const BannerDescription = document.createElement("p");
-    BannerDescription.className = "banner-description text-justify text-base text-white font-Dirooz mb-9";
+    BannerDescription.className =
+      "banner-description text-justify text-base text-white font-Text mb-9";
     let Description = Post.ArticleSections[0].Paragraphs[0].substring(0, 400);
     BannerDescription.innerText = Description;
     //
     const ViewPostLink = document.createElement("a");
     ViewPostLink.className =
-      "view-post-link flex items-center absolute -bottom-4 -left-4 w-fit p-1.5 text-lg font-Dirooz bg-zinc-800  text-blue-600 hover:text-yellow-500 transition duration-300 rounded-tr-md";
+      "view-post-link flex items-center absolute -bottom-4 -left-4 w-fit p-1.5 text-lg font-Text bg-zinc-800  text-blue-600 hover:text-yellow-500 transition duration-300 rounded-tr-md";
     ViewPostLink.href = `#${Post.Path}`;
     ViewPostLink.innerText = "ادامه مطلب";
     //
@@ -52,7 +58,12 @@ function BannerGenerator(PostsArray = Posts) {
     PostBannerImageContainer.append(PostBannerImage);
     BannerTitleContainer.append(BannerTitleLinkTag);
     BannerTitleLinkTag.append(BannerTitle);
-    PostBannerInfoSection.append(BannerTitleContainer, BannerDate, BannerDescription, ViewPostLink);
+    PostBannerInfoSection.append(
+      BannerTitleContainer,
+      BannerDate,
+      BannerDescription,
+      ViewPostLink,
+    );
     BannerFragments.append(PostBanner);
   });
   PostBannersContainer.append(BannerFragments);
@@ -73,10 +84,12 @@ function GeneratePaginationBar(TargetPosts = Posts) {
   if (PaginationElem) PaginationElem.remove();
   //
   const PaginationContainer = document.createElement("section");
-  PaginationContainer.className = "pagination w-full h-16 p-3 flex flex-row-reverse justify-center items-center bg-zinc-900 lg:rounded-md";
+  PaginationContainer.className =
+    "pagination w-full h-16 p-3 flex flex-row-reverse justify-center items-center bg-zinc-900 lg:rounded-md";
   //
   const PaginationBtnsContainer = document.createElement("section");
-  PaginationBtnsContainer.className = "pagination-buttons order-4 flex flex-row-reverse";
+  PaginationBtnsContainer.className =
+    "pagination-buttons order-4 flex flex-row-reverse";
   //
   const NextPageBtn = document.createElement("button");
   NextPageBtn.className =
@@ -140,7 +153,8 @@ function GeneratePaginationBar(TargetPosts = Posts) {
   RightEtcBtn.setAttribute("inert", "");
   //
   const leftEtcBtn = document.createElement("button");
-  leftEtcBtn.className = "pagination-btn flex order-3 justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
+  leftEtcBtn.className =
+    "pagination-btn flex order-3 justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
   leftEtcBtn.id = "left-etc-btn";
   leftEtcBtn.innerText = "....";
   leftEtcBtn.setAttribute("inert", "");
@@ -148,8 +162,14 @@ function GeneratePaginationBar(TargetPosts = Posts) {
   PaginationContainer.append(NextPageBtn, PaginationBtnsContainer, PrevPageBtn);
   document.querySelector("main").append(PaginationContainer);
   // Figure out how many buttons we need for pagination
-  let RangeStart = Math.max(1, CurrentPage - Math.floor(LayoutSettings.MaxPaginationButtons / 2));
-  let RangeEnd = Math.min(Posts.length, RangeStart + LayoutSettings.MaxPaginationButtons - 1);
+  let RangeStart = Math.max(
+    1,
+    CurrentPage - Math.floor(LayoutSettings.MaxPaginationButtons / 2),
+  );
+  let RangeEnd = Math.min(
+    Posts.length,
+    RangeStart + LayoutSettings.MaxPaginationButtons - 1,
+  );
   if (RangeEnd > PageCount) {
     RangeEnd = PageCount + 1;
   }
@@ -160,7 +180,8 @@ function GeneratePaginationBar(TargetPosts = Posts) {
   // Append the pagination button
   for (let i = RangeStart; i < RangeEnd; i++) {
     const PaginationBtn = document.createElement("button");
-    PaginationBtn.className = "pagination-btn flex justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
+    PaginationBtn.className =
+      "pagination-btn flex justify-center items-center w-12 h-12 border-0 mx-2 rounded-md text-xl bg-stone-700 text-white";
     PaginationBtn.setAttribute("data-page", i);
     PaginationBtn.innerText = i;
     PaginationBtn.addEventListener("click", () => {
@@ -180,6 +201,7 @@ function GeneratePaginationBar(TargetPosts = Posts) {
   // Highlight current page
   const PaginationButtons = document.querySelectorAll(".pagination-btn");
   PaginationButtons.forEach((Button) => {
-    if (Number(Button.dataset.page) === CurrentPage) Button.style.backgroundColor = "orangered";
+    if (Number(Button.dataset.page) === CurrentPage)
+      Button.style.backgroundColor = "orangered";
   });
 }

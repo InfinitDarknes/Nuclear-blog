@@ -2,7 +2,9 @@ const ShowSearchOverlayBtn = document.querySelector(".show-search-overlay-btn");
 const SearchOverlay = document.querySelector(".search-overlay");
 const SearchInput = document.querySelector(".search-input");
 const SearchBtn = document.querySelector(".search");
-const SearchPreviewContainer = document.querySelector(".search-preview-container");
+const SearchPreviewContainer = document.querySelector(
+  ".search-preview-container",
+);
 const SearchInputContainer = document.querySelector(".search-input-container");
 const SearchSomething = document.querySelector(".search-something");
 const NoResultBox = document.querySelector(".no-result-box");
@@ -50,12 +52,13 @@ function CreateSearchPreviews(Array) {
   let ItemsFragment = document.createDocumentFragment();
   Array.forEach((Post) => {
     const PostPreviewContainer = document.createElement("div");
-    PostPreviewContainer.className = "search-preview-item flex w-full p-2 my-1.5 bg-zinc-900 rounded-lg w-full";
+    PostPreviewContainer.className =
+      "search-preview-item flex w-full p-2 my-1.5 bg-zinc-900 rounded-lg w-full";
     const Image = document.createElement("img");
     Image.className = "search-preview-image w-16 h-16 ml-4";
     Image.src = Post.ThumbnailSrc;
     const Title = document.createElement("a");
-    Title.className = "search-preview-title text-base font-Sepahbod text-blue-600";
+    Title.className = "search-preview-title text-base font-Title text-blue-600";
     Title.innerText = Post.Title;
     Title.href = `#${Post.Path}`;
     PostPreviewContainer.append(Image, Title);
@@ -81,6 +84,7 @@ ShowSearchOverlayBtn.addEventListener("click", () => {
 document.body.addEventListener("click", (event) => {
   const TargetClassName = event.target.className;
   if (TargetClassName.includes("show-search-overlay-btn")) return;
-  if (SearchMode && TargetClassName.includes("search-overlay")) ResetSearchBar();
+  if (SearchMode && TargetClassName.includes("search-overlay"))
+    ResetSearchBar();
 });
 SearchInput.addEventListener("input", FetchPreviews);

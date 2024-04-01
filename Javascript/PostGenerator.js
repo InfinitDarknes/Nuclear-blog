@@ -35,9 +35,9 @@ function GeneratePost(Post) {
   Content.className = `content bg-zinc-800 flex flex-col items-center w-full mb-0 lg:rounded-md`;
   ArticleHeader.className = `article-header bg-zinc-900 flex flex-col items-start mb-5 p-3 w-full lg:rounded-tl-md lg:rounded-tr-md`;
   ArticleInfoContainer.className = `article-info-container`;
-  ArticleTitle.className = `article-title main-title text-yellow-500 font-Sepahbod w-full text-xl lg:text-2xl`;
-  ArticleDate.className = `article-date text-orange-600 text-base font-Sepahbod`;
-  ArticleThumbnail.className = `article-thumbnail w-11/12 sm:w-9/12 lg:w-7/12 2xl:w-6/12 rounded-md my-0 mx-auto object-fill`;
+  ArticleTitle.className = `article-title main-title text-yellow-500 font-Title w-full text-xl lg:text-2xl`;
+  ArticleDate.className = `article-date text-orange-600 text-base font-Title`;
+  ArticleThumbnail.className = `article-thumbnail w-11/12 sm:w-9/12 lg:w-150 lg:h-75 rounded-md my-0 mx-auto object-contain`;
   TextArea.className = `textarea flex flex-col items-center w-full h-fit my-5 lg:my-12`;
   ArticleBottom.className = `article-bottom flex flex-row flex-wrap w-full mb-4 lg:mb-12 mx-auto`;
   PostTags.className = `post-tags bg-zinc-700 flex flex-col items-start mx-3 mb-4 pb-1 w-full lg:w-fit h-fit rounded-md overflow-hidden`;
@@ -46,8 +46,8 @@ function GeneratePost(Post) {
   AuthorInfoContainer.className = `author-info-container flex flex-row items-center justify-between w-full px-5`;
   AuthorProfile.className = `author-profile ml-5`;
   AuthorImage.className = `author-image w-20 h-20 rounded-full object-fill`;
-  AuthorName.className = `author-name text-lg font-Sepahbod text-center text-yellow-500`;
-  AuthorBiography.className = `author-biography w-full p-5 rounded-md font-lg font-Dirooz text-white bg-zinc-900`;
+  AuthorName.className = `author-name text-lg font-Title text-center text-yellow-500`;
+  AuthorBiography.className = `author-biography w-full p-5 rounded-md font-lg font-Text text-white bg-zinc-900`;
   SocialMedias.className = `social-medias bg-zinc-700 flex flex-col items-center mx-3 mb-4 pb-1 w-full lg:w-fit overflow-hidden rounded-md`;
   SocialMediasNav.className = `social-medias-nav`;
   SocialMediasUl.className = `social-medias-ul flex list-none`;
@@ -55,9 +55,9 @@ function GeneratePost(Post) {
   PostTagsHeader.className = `w-full p-3 mb-2 flex bg-zinc-900 diagonal-pattern`;
   AuthorSectionHeader.className = `w-full p-3 mb-2 flex bg-zinc-900 diagonal-pattern`;
   SocialMediasHeader.className = `w-full p-3 mb-2 flex bg-zinc-900 diagonal-pattern`;
-  PostTagsTitle.className = `mr-2 font-Sepahbod text-lg text-yellow-500`;
-  AuthorSectionTitle.className = `mr-2 font-Sepahbod text-lg text-yellow-500`;
-  SocialMediasTitle.className = `mr-2 font-Sepahbod text-lg text-yellow-500`;
+  PostTagsTitle.className = `mr-2 font-Title text-lg text-yellow-500`;
+  AuthorSectionTitle.className = `mr-2 font-Title text-lg text-yellow-500`;
+  SocialMediasTitle.className = `mr-2 font-Title text-lg text-yellow-500`;
   PostTagsIcon.className = "w-8 h-8";
   AuthorSectionIcon.className = "w-8 h-8";
   SocialMediasIcon.className = "w-8 h-8";
@@ -81,12 +81,12 @@ function GeneratePost(Post) {
     const ArticleSection = document.createElement(`section`);
     ArticleSection.className = `article-section w-11/12`;
     const ArticleSectionTitle = document.createElement(`h3`);
-    ArticleSectionTitle.className = `sub-title bg-zinc-900 text-yellow-500 w-full p-3 mb-4 rounded-md font-Sepahbod text-lg md:text-xl`;
+    ArticleSectionTitle.className = `sub-title bg-zinc-900 text-yellow-500 w-full p-3 mb-4 rounded-md font-Title text-lg md:text-xl`;
     ArticleSectionTitle.innerText = Section.SectionTitle;
     ArticleSection.append(ArticleSectionTitle);
     Section.Paragraphs.forEach((Paragraph) => {
       const ArticleSectionParagraph = document.createElement(`p`);
-      ArticleSectionParagraph.className = `article-text text-white font-normal font-Dirooz my-4 text-justify text-base md:text-lg w-full`;
+      ArticleSectionParagraph.className = `article-text text-white font-normal font-Text my-4 text-justify text-base md:text-lg w-full`;
       ArticleSectionParagraph.innerText = Paragraph;
       ArticleSection.append(ArticleSectionParagraph);
     });
@@ -125,7 +125,12 @@ function GeneratePost(Post) {
   AuthorSection.append(AuthorSectionHeader, AuthorInfoContainer);
   AuthorInfoContainer.append(AuthorProfile, AuthorBiography);
   if (Post.ImageGalleryArray.length !== 0) {
-    Content.append(ArticleHeader, ReturnImageSlider(Post.ImageGalleryArray), TextArea, ArticleBottom);
+    Content.append(
+      ArticleHeader,
+      ReturnImageSlider(Post.ImageGalleryArray),
+      TextArea,
+      ArticleBottom,
+    );
   } else {
     Content.append(ArticleHeader, ArticleThumbnail, TextArea, ArticleBottom);
   }
@@ -177,7 +182,11 @@ function ReturnImageSlider(Images) {
     SliderCircle.className = `slider-circle`;
     SliderCircle.dataset.index = n.toString();
     SliderCircle.addEventListener(`click`, () => {
-      SelectImage(SliderID, SliderCircle.dataset.index, ArticleGallery.dataset.index);
+      SelectImage(
+        SliderID,
+        SliderCircle.dataset.index,
+        ArticleGallery.dataset.index,
+      );
     });
     SliderTrack.append(SliderCircle);
     if (n === 0) SliderCircle.classList.add(`active-slider-circle`);
@@ -206,10 +215,16 @@ function ReturnImageSlider(Images) {
         EndPosition = Event.clientX;
         IsDragging = false;
       }
-      if (EndPosition > StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.1) {
+      if (
+        EndPosition > StartPosition &&
+        DistanceTraveled > ImageItem.clientWidth * 0.1
+      ) {
         PreviousImg(SliderID);
       }
-      if (EndPosition < StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.1) {
+      if (
+        EndPosition < StartPosition &&
+        DistanceTraveled > ImageItem.clientWidth * 0.1
+      ) {
         NextImg(SliderID);
       }
     });
@@ -225,9 +240,15 @@ function ReturnImageSlider(Images) {
       if (IsDragging) {
         EndPosition = Event.changedTouches[0].clientX;
         IsDragging = false;
-        if (EndPosition > StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.1) {
+        if (
+          EndPosition > StartPosition &&
+          DistanceTraveled > ImageItem.clientWidth * 0.1
+        ) {
           PreviousImg(SliderID);
-        } else if (EndPosition < StartPosition && DistanceTraveled > ImageItem.clientWidth * 0.1) {
+        } else if (
+          EndPosition < StartPosition &&
+          DistanceTraveled > ImageItem.clientWidth * 0.1
+        ) {
           NextImg(SliderID);
         }
       }

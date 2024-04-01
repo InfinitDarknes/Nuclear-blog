@@ -5,13 +5,13 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: Sepahbod;
-  src: url(../Fonts/Dirooz.ttf) format(truetype);
+  font-family: ShabnamMD;
+  src: url(../Fonts/Shabnam-Medium.ttf) format(truetype);
 }
 
 @font-face {
-  font-family: Dirooz;
-  src: url(../Fonts/Dirooz.ttf) format(truetype);
+  font-family: ShabnamLight;
+  src: url(../Fonts/Shabnam-Light.ttf) format(truetype);
 }
 /* header */
 .drop-down-wrapper {
@@ -88,7 +88,11 @@
   );
 }
 .line-pattern {
-  background-image: linear-gradient(0deg, rgba(242, 242, 242, 0) 50%, rgba(41, 37, 36, 0.6) 50%);
+  background-image: linear-gradient(
+    0deg,
+    rgba(242, 242, 242, 0) 50%,
+    rgba(41, 37, 36, 0.6) 50%
+  );
   background-size: 4px 4px;
 }
 *:not() {
@@ -101,7 +105,7 @@
 a {
   text-decoration: none;
   display: inline-block;
-  font-family: Dirooz;
+  font-family: ShabnamLight;
   transition: color 0.3s;
 }
 

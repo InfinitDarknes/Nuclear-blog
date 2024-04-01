@@ -3,14 +3,18 @@ module.exports = {
   content: ["index.html", "Javascript/*.js"],
   theme: {
     fontFamily: {
-      Dirooz: "Dirooz",
-      Sepahbod: "Sepahbod",
+      Title: "ShabnamMD",
+      Text: "ShabnamLight",
     },
     extend: {
       colors: {
         white: "#dad6d6",
       },
+      spacing: {
+        150: "600px",
+        75: "300px",
+      },
     },
   },
-  plugins: [],
+  plugins: ["prettier-plugin-tailwindcss"],
 };
