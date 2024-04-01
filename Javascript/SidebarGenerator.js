@@ -3,7 +3,7 @@ function GenerateAllTagsSidebarItem() {
   if (document.querySelector(".right-sidebar")) document.querySelector(".right-sidebar").remove();
   const RightColumn = document.querySelector(".righ-column");
   const RightSidebar = document.createElement("aside");
-  RightSidebar.className = "right-sidebar flex flex-col w-full lg:mr-2 lg:rounded-md lg:w-1/5 order-2 lg:order-1";
+  RightSidebar.className = "right-sidebar flex flex-col w-full h-fit lg:mr-2 lg:rounded-md lg:w-1/5 order-2 lg:order-1";
   const AllTagsSection = document.createElement("section");
   AllTagsSection.className = "bg-zinc-800 mb-3 p-3 rounded-md";
   AllTagsSection.id = "all-tags-section";
@@ -20,15 +20,16 @@ function GenerateAllTagsSidebarItem() {
   AllTagsSectionList.className = "flex flex-col items-center w-full";
   for (n in Tags) {
     if (!Tags[n].CountOfPosts) continue;
+    let TagObj = { ...Tags[n] };
     const ListItem = document.createElement("li");
     ListItem.className = "flex justify-between w-11/12 my-1";
     const TagCount = document.createElement("span");
     TagCount.className = "font-Dirooz text-orange-600";
-    TagCount.innerText = Tags[n].CountOfPosts;
+    TagCount.innerText = PlacePersianNumbers(TagObj.CountOfPosts);
     const TagLink = document.createElement("a");
     TagLink.className = "text-blue-600 text-lg";
-    TagLink.href = Tags[n].Href;
-    TagLink.innerText = Tags[n].DisplayName;
+    TagLink.href = TagObj.Href;
+    TagLink.innerText = TagObj.DisplayName;
     ListItem.append(TagLink, TagCount);
     AllTagsSectionList.append(ListItem);
   }

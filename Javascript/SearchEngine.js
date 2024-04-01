@@ -31,6 +31,7 @@ function FetchPreviews() {
   });
   let MixedResults = SearchInTitles.concat(SearchInParagraphs);
   MixedResults = MixedResults.filter((Item, Index) => {
+    console.log(MixedResults.indexOf(Item), "vs", Index);
     return MixedResults.indexOf(Item) === Index;
   });
   if (MixedResults.length === 0) {

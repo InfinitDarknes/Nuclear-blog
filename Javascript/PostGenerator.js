@@ -1,5 +1,4 @@
 function GeneratePost(Post) {
-  console.log(Post);
   const Main = document.querySelector(`main`);
   Main.innerHTML = ``;
   //
@@ -30,7 +29,7 @@ function GeneratePost(Post) {
   Content.className = `content bg-zinc-800 flex flex-col items-center w-full mb-0 lg:rounded-md`;
   ArticleHeader.className = `article-header bg-zinc-900 flex flex-col items-start mb-5 p-3 w-full lg:rounded-tl-md lg:rounded-tr-md`;
   ArticleInfoContainer.className = `article-info-container`;
-  ArticleTitle.className = `article-title text-yellow-500 font-Sepahbod w-full text-xl lg:text-2xl`;
+  ArticleTitle.className = `article-title main-title text-yellow-500 font-Sepahbod w-full text-xl lg:text-2xl`;
   ArticleDate.className = `article-date text-orange-600 text-base font-Sepahbod`;
   Category.className = `category`;
   ArticleThumbnail.className = `article-thumbnail w-11/12 sm:w-9/12 lg:w-7/12 2xl:w-6/12 rounded-md my-0 mx-auto object-fill`;

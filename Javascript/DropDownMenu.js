@@ -8,7 +8,7 @@ function GenerateAllPostsDropDown() {
   // Categories drop down
   const AllPostsDropDown = document.createElement("ul");
   AllPostsDropDown.className = `drop-down-wrapper invisiable pointer-events-none grid opacity-0 grid-cols-2 gap-2 bg-zinc-900 shadow-lg shadow-white/40 absolute p-3 
-  min-w-96 max-h-96 overflow-y-scroll border-t-transparent transition-all duration-500 group-hover:visiable group-hover:opacity-100 group-hover:pointer-events-auto`;
+  min-w-96 max-h-96 overflow-y-scroll border-t-transparent transition-all duration-500 group-hover:visiable group-hover:opacity-100 group-hover:pointer-events-auto -top-3`;
   AllPostsDropDown.setAttribute("data-drop-down", "");
   for (n in Tags) {
     if (!Tags[n].CountOfPosts) continue;
@@ -34,16 +34,30 @@ function GenerateCategoriesDropDown() {
   CategoriesDropDown.className = `drop-down-wrapper invisiable pointer-events-none grid opacity-0 grid-cols-1 gap-2 bg-zinc-900 shadow-lg shadow-white/40 absolute p-3 
   min-w-96 max-h-96 overflow-y-scroll border-t-transparent transition-all duration-500 group-hover:visiable group-hover:opacity-100 group-hover:pointer-events-auto`;
   CategoriesDropDown.setAttribute("data-drop-down", "");
+  // First drop down that is gonna redirect user to categories page
+  const DropDownItem = document.createElement("li");
+  const DropDownText = document.createElement("a");
+  const DropDownCount = document.createElement("span");
+  DropDownCount.className = "p-1 text-orange-600";
+  DropDownText.className = "drop-down-text p-1 text-blue-600 transition duration-300";
+  DropDownItem.className =
+    "drop-down-item min-w-32 flex items-center justify-between p-2 rounded-md bg-zinc-800 transition duration-300 hover:scale-x-105";
+  DropDownText.innerText = "مشاهده همه دست بندی ها";
+  DropDownItem.append(DropDownText, DropDownCount);
+  CategoriesDropDown.append(DropDownItem);
   for (n in CategoriesArray) {
+    let CategoryInfo = GetCategoryInfoByName(CategoriesArray[n].KeyName);
+    if (CategoryInfo.PostsCount === 0) continue;
     const DropDownItem = document.createElement("li");
     DropDownItem.className =
       "drop-down-item min-w-32 flex items-center justify-between p-2 rounded-md bg-zinc-800 transition duration-300 hover:scale-x-105";
     const DropDownText = document.createElement("a");
     DropDownText.className = "drop-down-text p-1 text-blue-600 transition duration-300";
-    DropDownText.href = `#category-${CategoriesArray[n].KeyName}`;
+    DropDownText.href = `#category-${CategoryInfo.Name}`;
     const DropDownCount = document.createElement("span");
     DropDownCount.className = "p-1 text-orange-600";
-    DropDownText.innerText = CategoriesArray[n].DisplayName;
+    DropDownCount.innerText = PlacePersianNumbers(`${CategoryInfo.PostsCount} مقاله`);
+    DropDownText.innerText = CategoryInfo.DisplayName;
     DropDownItem.append(DropDownText, DropDownCount);
     CategoriesDropDown.append(DropDownItem);
   }

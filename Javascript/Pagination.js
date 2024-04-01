@@ -9,8 +9,7 @@ function BannerGenerator(PostsArray = Posts) {
   let BannerFragments = document.createDocumentFragment();
   PostsArray.forEach((Post) => {
     const PostBanner = document.createElement("article");
-    PostBanner.className =
-      "post-banner flex flex-col items-center lg:items-end lg:flex-row  p-4 w-full bg-zinc-900 lg:rounded-md mb-2 overflow-hidden";
+    PostBanner.className = "post-banner flex flex-col items-center lg:flex-row  p-4 w-full bg-zinc-900 lg:rounded-md mb-2 overflow-hidden";
     const PostBannerImageContainer = document.createElement("section");
     PostBannerImageContainer.className = "post-banner-image-container w-72 lg:w-48 h-48 lg:h-36 ";
     //
@@ -28,9 +27,10 @@ function BannerGenerator(PostsArray = Posts) {
     //
     const BannerTitleLinkTag = document.createElement("a");
     BannerTitleLinkTag.href = `#${Post.Path}`;
+    BannerTitleLinkTag.className = "text-blue-600 text-xl";
     //
     const BannerTitle = document.createElement("h2");
-    BannerTitle.className = "banner-title text-blue-600 text-xl hover:text-yellow-500";
+    BannerTitle.className = "banner-title";
     BannerTitle.innerText = Post.Title;
     //
     const BannerDate = document.createElement("span");
