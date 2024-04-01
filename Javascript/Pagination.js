@@ -44,7 +44,7 @@ function BannerGenerator(PostsArray = Posts) {
     //
     const ViewPostLink = document.createElement("a");
     ViewPostLink.className =
-      "view-post-link flex items-center absolute -bottom-4 -left-4 w-fit p-1.5 text-lg font-Dirooz bg-stone-800 text-blue-600 hover:text-yellow-500 transition duration-300";
+      "view-post-link flex items-center absolute -bottom-4 -left-4 w-fit p-1.5 text-lg font-Dirooz bg-zinc-800  text-blue-600 hover:text-yellow-500 transition duration-300 rounded-tr-md";
     ViewPostLink.href = `#${Post.Path}`;
     ViewPostLink.innerText = "ادامه مطلب";
     //

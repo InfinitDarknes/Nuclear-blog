@@ -12,17 +12,23 @@ function GeneratePost(Post) {
   const TextArea = document.createElement(`section`);
   const ArticleBottom = document.createElement(`section`);
   const PostTags = document.createElement(`section`);
+  const PostTagsHeader = document.createElement(`div`);
   const PostTagsTitle = document.createElement(`span`);
+  const PostTagsIcon = document.createElement("img");
   const TagsContainer = document.createElement(`section`);
   const AuthorSection = document.createElement(`section`);
   const AuthorInfoContainer = document.createElement(`section`);
+  const AuthorSectionHeader = document.createElement(`div`);
   const AuthorSectionTitle = document.createElement(`span`);
+  const AuthorSectionIcon = document.createElement("img");
   const AuthorProfile = document.createElement(`section`);
   const AuthorImage = document.createElement(`img`);
   const AuthorName = document.createElement(`span`);
   const AuthorBiography = document.createElement(`p`);
   const SocialMedias = document.createElement(`section`);
+  const SocialMediasHeader = document.createElement(`div`);
   const SocialMediasTitle = document.createElement(`section`);
+  const SocialMediasIcon = document.createElement("img");
   const SocialMediasNav = document.createElement(`section`);
   const SocialMediasUl = document.createElement(`section`);
   // Class
@@ -31,24 +37,30 @@ function GeneratePost(Post) {
   ArticleInfoContainer.className = `article-info-container`;
   ArticleTitle.className = `article-title main-title text-yellow-500 font-Sepahbod w-full text-xl lg:text-2xl`;
   ArticleDate.className = `article-date text-orange-600 text-base font-Sepahbod`;
-  Category.className = `category`;
   ArticleThumbnail.className = `article-thumbnail w-11/12 sm:w-9/12 lg:w-7/12 2xl:w-6/12 rounded-md my-0 mx-auto object-fill`;
   TextArea.className = `textarea flex flex-col items-center w-full h-fit my-5 lg:my-12`;
   ArticleBottom.className = `article-bottom flex flex-row flex-wrap w-full mb-4 lg:mb-12 mx-auto`;
-  PostTags.className = `post-tags bg-zinc-900 flex flex-col items-start mx-5 mb-6 pb-3 w-full lg:w-fit h-fit rounded-md overflow-hidden`;
-  TagsContainer.className = `tags-container flex justify-start flex-wrap m-3`;
-  AuthorSection.className = `author-section bg-zinc-900 w-full flex flex-col mx-5 mb-6 pb-3 overflow-hidden rounded-md`;
+  PostTags.className = `post-tags bg-zinc-700 flex flex-col items-start mx-3 mb-4 pb-1 w-full lg:w-fit h-fit rounded-md overflow-hidden`;
+  TagsContainer.className = `tags-container flex justify-start flex-wrap m-1`;
+  AuthorSection.className = `author-section bg-zinc-700 w-full flex flex-col mx-3 mb-4 pb-1 overflow-hidden rounded-md`;
   AuthorInfoContainer.className = `author-info-container flex flex-row items-center justify-between w-full px-5`;
   AuthorProfile.className = `author-profile ml-5`;
   AuthorImage.className = `author-image w-20 h-20 rounded-full object-fill`;
   AuthorName.className = `author-name text-lg font-Sepahbod text-center text-yellow-500`;
-  AuthorBiography.className = `author-biography w-full p-5 rounded-md font-lg font-Dirooz text-white bg-zinc-800`;
-  SocialMedias.className = `social-medias bg-zinc-900 flex flex-col items-center mx-5 mb-6 pb-3 w-full lg:w-fit overflow-hidden rounded-md`;
+  AuthorBiography.className = `author-biography w-full p-5 rounded-md font-lg font-Dirooz text-white bg-zinc-900`;
+  SocialMedias.className = `social-medias bg-zinc-700 flex flex-col items-center mx-3 mb-4 pb-1 w-full lg:w-fit overflow-hidden rounded-md`;
   SocialMediasNav.className = `social-medias-nav`;
   SocialMediasUl.className = `social-medias-ul flex list-none`;
-  PostTagsTitle.className = `w-full p-3 mb-4 font-Sepahbod text-lg bg-stone-700 text-yellow-500`;
-  AuthorSectionTitle.className = `w-full p-3 mb-4 font-Sepahbod text-lg bg-stone-700 text-yellow-500`;
-  SocialMediasTitle.className = `w-full p-3 mb-4 font-Sepahbod text-lg bg-stone-700 text-yellow-500`;
+  // Article footer header,title,icon etc..
+  PostTagsHeader.className = `w-full p-3 mb-2 flex bg-zinc-900 diagonal-pattern`;
+  AuthorSectionHeader.className = `w-full p-3 mb-2 flex bg-zinc-900 diagonal-pattern`;
+  SocialMediasHeader.className = `w-full p-3 mb-2 flex bg-zinc-900 diagonal-pattern`;
+  PostTagsTitle.className = `mr-2 font-Sepahbod text-lg text-yellow-500`;
+  AuthorSectionTitle.className = `mr-2 font-Sepahbod text-lg text-yellow-500`;
+  SocialMediasTitle.className = `mr-2 font-Sepahbod text-lg text-yellow-500`;
+  PostTagsIcon.className = "w-8 h-8";
+  AuthorSectionIcon.className = "w-8 h-8";
+  SocialMediasIcon.className = "w-8 h-8";
   // InnerText and Src
   ArticleTitle.innerText = Post.Title;
   ArticleDate.innerText = Post.Date;
@@ -61,6 +73,9 @@ function GeneratePost(Post) {
   AuthorName.innerText = Post.Author.DisplayName;
   AuthorBiography.innerText = Post.Author.Biography;
   AuthorImage.src = Post.Author.ProfilePicture;
+  PostTagsIcon.src = "Icons/TagsIcon.png";
+  AuthorSectionIcon.src = "Icons/AuthorIcon.png";
+  SocialMediasIcon.src = "Icons/SocialMediasIcon.png";
   // Article sections and their paragraphs
   Post.ArticleSections.forEach((Section) => {
     const ArticleSection = document.createElement(`section`);
@@ -79,7 +94,7 @@ function GeneratePost(Post) {
   });
   Post.Tags.forEach((Tag) => {
     const TagElement = document.createElement(`h4`);
-    TagElement.className = `tag bg-zinc-800 flex justify-center items-center rounded-md p-1.5 m-1 text-lg`;
+    TagElement.className = `tag bg-zinc-900 flex justify-center items-center rounded-md p-1.5 m-1 text-lg`;
     const TagLink = document.createElement(`a`);
     TagLink.className = `tag-link text-blue-600`;
     TagLink.innerText = Tag.DisplayName;
@@ -99,12 +114,15 @@ function GeneratePost(Post) {
     SocialMediasUl.append(ListItem);
   });
   ArticleHeader.append(ArticleTitle, ArticleDate, Category);
+  PostTagsHeader.append(PostTagsIcon, PostTagsTitle);
+  AuthorSectionHeader.append(AuthorSectionIcon, AuthorSectionTitle);
+  SocialMediasHeader.append(SocialMediasIcon, SocialMediasTitle);
   ArticleBottom.append(PostTags, SocialMedias, AuthorSection);
-  PostTags.append(PostTagsTitle, TagsContainer);
-  SocialMedias.append(SocialMediasTitle, SocialMediasNav);
+  PostTags.append(PostTagsHeader, TagsContainer);
+  SocialMedias.append(SocialMediasHeader, SocialMediasNav);
   SocialMediasNav.append(SocialMediasUl);
   AuthorProfile.append(AuthorImage, AuthorName);
-  AuthorSection.append(AuthorSectionTitle, AuthorInfoContainer);
+  AuthorSection.append(AuthorSectionHeader, AuthorInfoContainer);
   AuthorInfoContainer.append(AuthorProfile, AuthorBiography);
   if (Post.ImageGalleryArray.length !== 0) {
     Content.append(ArticleHeader, ReturnImageSlider(Post.ImageGalleryArray), TextArea, ArticleBottom);

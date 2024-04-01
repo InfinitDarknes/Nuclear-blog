@@ -125,7 +125,6 @@ function StickySidebar() {
   const MainElem = document.querySelector("main");
   const LeftSidebarHeight = LeftSidebar.clientHeight;
   const RightSidebarHeight = RightSidebar.clientHeight;
-  const MainElemHeight = MainElem.clientHeight;
   if (window.scrollY >= LeftSidebarHeight - ViewPortHeight) {
     LeftSidebar.style.position = "sticky";
     LeftSidebar.style.top = `${HeaderHeight + 20}px`;
@@ -137,12 +136,6 @@ function StickySidebar() {
     RightSidebar.style.top = `${HeaderHeight + 20}px`;
   } else {
     RightSidebar.style.position = "";
-  }
-  if (window.scrollY >= MainElemHeight - ViewPortHeight) {
-    MainElem.style.position = "sticky";
-    MainElem.style.top = `${HeaderHeight + 20}px`;
-  } else {
-    MainElem.style.position = "";
   }
 }
 function MinimizeHeaderOnScroll() {
